@@ -57,6 +57,13 @@ function render(data){
  setText('.footer-top>div:first-child>p',foot.description);setText('.footer-bottom>span:first-child',foot.copyright);setText('.footer-bottom>span:nth-child(2)',foot.notice);
  const groups=all('.footer-menu>div');for(const [i,xs,title] of [[0,foot.links1,foot.menu1Title],[1,foot.links2,foot.menu2Title]])if(groups[i]&&Array.isArray(xs))groups[i].innerHTML='<strong>'+esc(title||'')+'</strong>'+xs.map(x=>'<a href="'+esc(link(x.url))+'" '+(String(x.url).startsWith('https://')?'target="_blank" rel="noopener noreferrer"':'')+'>'+esc(x.title)+'</a>').join('');
  setText('.questions h2',head.faq);
+ const misc=data.misc||{};
+ for(const [selector,key] of [['.verify-note','verifyNote'],['#atuacao .small-hint','mandateHint'],['#projetos .section-label','projectsSectionLabel'],['#noticias .section-label','newsSectionLabel'],['#arquivo .section-label','archiveSectionLabel'],['#sobre .section-label','aboutSectionLabel'],['#transparencia .section-label','trustSectionLabel'],['.questions .section-label','faqSectionLabel'],['#inscricoes .section-label','joinHint']])setText(selector,misc[key]);
+ setText('#transparencia .section-header h2',misc.trustTitle);
+ const navJoin=pick('.nav-join');if(navJoin&&id.ctaLabel)navJoin.innerHTML=esc(id.ctaLabel)+' '+svgArrow;
+ const mobileJoin=pick('.mobile-join');if(mobileJoin&&id.ctaLabel)mobileJoin.innerHTML=esc(id.ctaLabel)+' '+svgArrow;
+ if(Array.isArray(data.trust)){const trust=pick('.trust-grid');if(trust)trust.innerHTML=data.trust.map((x,i)=>'<div><span class="trust-number">'+String(i+1).padStart(2,'0')+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.description)+'</p></div>').join('');}
+ if(Array.isArray(data.faq)){const list=pick('.question-list');if(list)list.innerHTML=data.faq.map(x=>'<details><summary>'+esc(x.question)+'<span>+</span></summary><p>'+esc(x.answer)+'</p></details>').join('');}
  // Os valores de contato e endereço podem aparecer como informação adicional no rodapé.
  let contact=pick('#cms-contact');if(!contact){contact=document.createElement('p');contact.id='cms-contact';contact.className='cms-footer-contact';const top=pick('.footer-top>div:first-child');top?.append(contact);}
  contact.textContent=[foot.address,foot.contact].filter(Boolean).join(' · ');
@@ -65,5 +72,5 @@ window.PortalCMS={render};
 window.addEventListener('message',e=>{if(e.origin!==location.origin||e.data?.type!=='PORTAL_CMS_PREVIEW')return;render(e.data.content);});
 const q=new URLSearchParams(location.search);
 if(q.has('preview')){document.documentElement.dataset.preview='true';}
-fetch('/dados/site.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('CMS indisponível');return r.json()}).then(render).catch(()=>{});
+if(!q.has('preview'))fetch('/dados/site.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('CMS indisponível');return r.json()}).then(render).catch(()=>{});
 })();
