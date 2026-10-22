@@ -18,7 +18,7 @@ function render(data){
  const id=data.identity||{},h=data.hero||{},head=data.headlines||{},about=data.about||{},enr=data.enrollment||{},foot=data.footer||{};
  setText('.brand strong',id.name);setText('.brand small',id.tagline);document.title=(id.name||'Cláudia Bezerra')+' | '+(id.tagline||'Itaitinga em Movimento');
  if(Array.isArray(data.nav)){
-  const nav=pick('#mainNav');if(nav)nav.innerHTML=data.nav.map((x,i)=>'<a href="'+esc(link(x.url))+'" class="'+(!i?'nav-active':'')+'">'+esc(x.title)+'</a>')+'<button type="button" class="btn btn-primary mobile-join" data-open-enrollment>Pré-inscrição '+svgArrow+'</button>';
+  const nav=pick('#mainNav');if(nav)nav.innerHTML=data.nav.map((x,i)=>'<a href="'+esc(link(x.url))+'" class="'+(!i?'nav-active':'')+'">'+esc(x.title)+'</a>').join('')+'<button type="button" class="btn btn-primary mobile-join" data-open-enrollment>Pré-inscrição '+svgArrow+'</button>';
  }
  const eyebrow=pick('.hero-eyebrow');if(eyebrow)eyebrow.innerHTML='<span></span>'+esc(h.eyebrow||'');
  const heroTitle=pick('#hero-title');if(heroTitle)heroTitle.innerHTML=esc(h.line1||'')+'<br>'+esc(h.line2||'')+'<br><em>'+esc(h.line3||'')+'</em>';
