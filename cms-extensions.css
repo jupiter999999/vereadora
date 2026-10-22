@@ -11,3 +11,11 @@
 .project-card img,.archive-item img{filter:saturate(1.05)}
 #cms-contact:empty{display:none}
 @media(max-width:730px){.cms-gallery img.article-modal-image{min-height:180px;max-height:350px}.cms-gallery-controls{inset:auto 10px 10px}.cms-gallery-controls button{width:35px;height:35px}}
+
+.headline-card{position:relative}
+.cms-lead-controls{position:absolute;display:flex;gap:7px;right:16px;top:16px;opacity:0;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease;z-index:4;align-items:center}
+.headline-card:hover .cms-lead-controls,.cms-lead-controls:focus-within{opacity:1;transform:translateY(0)}
+.cms-lead-controls button,.cms-lead-controls span{border:1px solid #ffffff60;background:#103e34c9;color:#fff;border-radius:9px;height:35px;min-width:35px;padding:0 9px;display:grid;place-items:center;backdrop-filter:blur(7px);font-size:17px}
+.cms-lead-controls span{font-size:11px}
+.cms-lead-controls button:hover{background:#168a66}
+@media(hover:none){.cms-lead-controls{opacity:1;transform:none}}
