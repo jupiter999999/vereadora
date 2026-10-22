@@ -19,5 +19,15 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/adm",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/adm/",
+      "destination": "/admin/index.html"
+    }
   ]
 }
