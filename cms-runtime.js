@@ -39,6 +39,15 @@ function render(data){
   if(items.length){
    const top=items[0], p=pick('.headline-image');
    if(p){p.dataset.article=top.id;const image=(top.images||[])[0]||top.image;p.innerHTML='<img src="'+esc(photo(image))+'" loading="lazy" alt="'+esc(top.title)+'"><span class="headline-gradient"></span><span class="headline-overlay"><span class="headline-tag">'+esc(top.category)+'</span><strong>'+esc(top.title)+'</strong><span class="headline-meta">'+esc(top.date)+'</span></span><span class="headline-arrow">'+svgArrow+'</span>';}
+   // Galeria navegável da notícia principal, sem abrir o modal.
+   const card=pick('.headline-card');const previous=pick('.cms-lead-controls',card);if(previous)previous.remove();
+   const images=(Array.isArray(top.images)&&top.images.length?top.images:[top.image]).map(photo).filter(Boolean);
+   if(card&&p&&images.length>1){let at=0;const controls=document.createElement('div');controls.className='cms-lead-controls';const prev=document.createElement('button'),next=document.createElement('button'),counter=document.createElement('span');
+    prev.type=next.type='button';prev.className='cms-lead-prev';next.className='cms-lead-next';prev.textContent='‹';next.textContent='›';prev.setAttribute('aria-label','Foto anterior');next.setAttribute('aria-label','Próxima foto');counter.textContent='1 / '+images.length;
+    const step=d=>{at=(at+d+images.length)%images.length;const img=pick('img',p);if(img)img.src=images[at];counter.textContent=(at+1)+' / '+images.length;};
+    prev.addEventListener('click',ev=>{ev.stopPropagation();step(-1)});next.addEventListener('click',ev=>{ev.stopPropagation();step(1)});
+    controls.append(prev,counter,next);card.append(controls);
+   }
    const rail=pick('.news-rail');if(rail)rail.innerHTML=items.slice(1,5).map(x=>'<button type="button" data-article="'+safeId(x.id)+'" class="news-mini"><img src="'+esc(photo((x.images||[])[0]||x.image))+'" loading="lazy" alt="'+esc(x.title)+'"><span><small>'+esc(x.category)+'</small><strong>'+esc(x.title)+'</strong><time datetime="'+esc(x.date)+'">'+esc(x.date)+'</time></span></button>').join('');
   }
  }
