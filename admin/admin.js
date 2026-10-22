@@ -1,5 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s), H=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=String(text);return e;};
+const assetSrc=s=>typeof s==='string'&&s.startsWith('assets/cms/')?'https://raw.githubusercontent.com/jupiter999999/vereadora/cms/rascunho/'+s:s;
 const sections={
  identity:{title:'Identidade do site',hint:'Nome, descrição e endereço dos links institucionais.',fields:[['name','Nome exibido no site'],['tagline','Subtítulo / marca'],['description','Descrição do portal','textarea'],['instagram','Instagram oficial','url'],['ctaLabel','Texto do botão de inscrição']]},
  hero:{title:'Capa e fundo principal',hint:'Edite os três trechos do título, botões e a fotografia principal.',fields:[['eyebrow','Texto acima do título'],['line1','Título — linha 1'],['line2','Título — linha 2'],['line3','Título — trecho em verde'],['description','Texto da capa','textarea'],['image','Imagem de fundo','image','hero'],['photoCredit','Legenda da fotografia'],['handwriting','Frase decorativa','textarea'],['button1','Texto do botão principal'],['button1Url','Destino do botão principal','url'],['button2','Texto do segundo botão'],['button2Url','Destino do segundo botão','url']]},
@@ -41,12 +42,12 @@ function field(host,obj,k,label,type='text',mode=''){const row=H('div','field');
  if(type==='url')row.append(H('small','', 'Use links https://, #nome-da-seção, mailto: ou tel:.'));
  host.append(row);
 }
-function asset(row,obj,k,mode){const dim=sizes[mode]||sizes.project;const zone=H('div','asset-field');const image=H('img','asset-preview');image.alt='Prévia da imagem atual';image.src=obj[k]||'/assets/hero-group.webp';image.onerror=()=>{image.style.opacity=.15};zone.append(image);
+function asset(row,obj,k,mode){const dim=sizes[mode]||sizes.project;const zone=H('div','asset-field');const image=H('img','asset-preview');image.alt='Prévia da imagem atual';image.src=assetSrc(obj[k])||'/assets/hero-group.webp';image.onerror=()=>{image.style.opacity=.15};zone.append(image);
  const info=H('div','asset-info');info.append(H('strong','',dim.label),H('p','','Formatos aceitos: JPG, PNG ou WebP. Envie EXATAMENTE '+dim.w+' × '+dim.h+' pixels. O editor converte em WebP (máx. 1 MB).'));
  const upload=H('label','asset-upload','↑ Trocar fotografia');const inp=H('input');inp.type='file';inp.accept='image/png,image/jpeg,image/webp';upload.append(inp);info.append(upload);const err=H('small','asset-error');info.append(err);zone.append(info);row.append(zone);
  inp.addEventListener('change',async()=>{const file=inp.files?.[0];if(!file)return;err.textContent='';try{if(file.size>10000000)throw Error('Arquivo original acima de 10 MB.');const bitmap=await createImageBitmap(file);if(bitmap.width!==dim.w||bitmap.height!==dim.h){const w=bitmap.width,h=bitmap.height;bitmap.close();throw Error('Dimensão recebida: '+w+' × '+h+' px. Este espaço aceita apenas '+dim.w+' × '+dim.h+' px.');}const canvas=document.createElement('canvas');canvas.width=dim.w;canvas.height=dim.h;canvas.getContext('2d').drawImage(bitmap,0,0);bitmap.close();let uri=canvas.toDataURL('image/webp',.85);if(uri.length>1350000)uri=canvas.toDataURL('image/webp',.65);if(uri.length>1350000)throw Error('A imagem excede 1 MB mesmo após a compressão.');obj[k]=uri;image.src=uri;markDirty();msg('Imagem aceita: '+dim.label+'. Ficará online somente após publicar.');}catch(e){err.textContent=e.message;inp.value='';}});
 }
-function gallery(row,obj,k,mode){if(!Array.isArray(obj[k]))obj[k]=obj.image?[obj.image]:[];const grid=H('div','gallery-grid');const repaint=()=>{grid.replaceChildren();obj[k].forEach((src,i)=>{const tile=H('div','gallery-piece');const img=H('img');img.src=src;img.alt='Foto '+(i+1);const del=H('button','small-btn danger','Remover foto '+(i+1));del.type='button';del.addEventListener('click',()=>{obj[k].splice(i,1);obj.image=obj[k][0]||'';markDirty();repaint()});tile.append(img,del);grid.append(tile);});};repaint();row.append(grid);
+function gallery(row,obj,k,mode){if(!Array.isArray(obj[k]))obj[k]=obj.image?[obj.image]:[];const grid=H('div','gallery-grid');const repaint=()=>{grid.replaceChildren();obj[k].forEach((src,i)=>{const tile=H('div','gallery-piece');const img=H('img');img.src=assetSrc(src);img.alt='Foto '+(i+1);const del=H('button','small-btn danger','Remover foto '+(i+1));del.type='button';del.addEventListener('click',()=>{obj[k].splice(i,1);obj.image=obj[k][0]||'';markDirty();repaint()});tile.append(img,del);grid.append(tile);});};repaint();row.append(grid);
  const control={image:''};const uploadArea=H('div');asset(uploadArea,control,'image',mode);const fileInput=uploadArea.querySelector('input[type=file]');const observer=new MutationObserver(()=>{if(control.image&&!obj[k].includes(control.image)){if(obj[k].length>=8){msg('No máximo 8 fotos por notícia.',true);control.image='';return;}obj[k].push(control.image);obj.image=obj[k][0];control.image='';markDirty();repaint();}});observer.observe(uploadArea,{attributes:true,subtree:true,attributeFilter:['src']}); // event custom after acceptance below
  const original=fileInput.onchange;
  fileInput.addEventListener('change',()=>setTimeout(()=>{if(control.image){if(obj[k].length<8){obj[k].push(control.image);obj.image=obj[k][0];repaint();markDirty();}else msg('No máximo 8 fotos por notícia.',true);control.image='';}},500));
@@ -93,7 +94,21 @@ $('#previewButton').onclick=()=>{if(!content)return;$('#previewLayer').hidden=fa
 $('#closePreview').onclick=()=>{$('#previewLayer').hidden=true;};
 document.querySelectorAll('[data-device]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-device]').forEach(x=>x.classList.toggle('selected',x===b));$('.preview-canvas').classList.toggle('mobile',b.dataset.device==='mobile');}));
 $('#previewFrame').addEventListener('load',pushPreview);
-$('#saveButton').onclick=async()=>{if(!authenticated||!dirty||busy)return;busy=true;updateActions();msg('Salvando rascunho no GitHub…');try{const r=await request('save',{method:'POST',body:{content,sha:savedSha}});content=r.content;savedSha=r.sha;markSaved('Rascunho salvo com sucesso. Confira a prévia antes de publicar.');draw();msg('Rascunho salvo! As fotos foram adicionadas ao GitHub de desenvolvimento. Nenhum visitante viu estas alterações ainda.');}catch(e){msg(e.message,true);}finally{busy=false;updateActions();}};
+$('#saveButton').onclick=async()=>{if(!authenticated||!dirty||busy)return;busy=true;updateActions();msg('Salvando rascunho no GitHub…');
+ try{
+  let json=JSON.stringify(content);
+  const pictures=[...new Set(json.match(/data:image\/webp;base64,[A-Za-z0-9+/=]+/g)||[])];
+  for(let i=0;i<pictures.length;i++){
+   msg('Enviando fotografia '+(i+1)+' de '+pictures.length+' para o rascunho…');
+   const uploaded=await request('asset',{method:'POST',body:{image:pictures[i]}});
+   json=json.split(pictures[i]).join(uploaded.path);
+  }
+  const prepared=JSON.parse(json);
+  const r=await request('save',{method:'POST',body:{content:prepared,sha:savedSha}});
+  content=r.content;savedSha=r.sha;markSaved('Rascunho salvo no GitHub. Confira a prévia antes de publicar.');draw();pushPreview();
+  msg('Rascunho salvo com sucesso. '+pictures.length+' nova(s) foto(s) incluída(s). Nada entrou no ar ainda.');
+ }catch(e){msg('Não foi possível salvar: '+e.message,true);}finally{busy=false;updateActions();}
+};
 $('#publishButton').onclick=async()=>{if(!authenticated||busy||dirty)return;if(!confirm('Publicar este rascunho no site oficial? Depois do deploy, todos os visitantes verão as alterações.'))return;busy=true;updateActions();msg('Publicando no GitHub…');try{const r=await request('publish',{method:'POST',body:{}});msg(r.alreadyPublished?'Este conteúdo já está publicado.':'Publicado no GitHub! A Vercel fará o deploy automaticamente.');$('#saveState').textContent='Versão enviada para publicação. Aguarde o status READY na Vercel.';}catch(e){msg(e.message,true);}finally{busy=false;updateActions();}};
 $('#discardButton').onclick=async()=>{if(!confirm('Descartar alterações e voltar à versão publicada?'))return;try{if(authenticated){await request('discard',{method:'POST',body:{}});const d=await request('draft');content=d.content;savedSha=d.sha;}else{content=await(await fetch('/dados/site.json',{cache:'no-store'})).json();}markSaved('Conteúdo restaurado para a última versão publicada.');draw();msg('Rascunho descartado.');}catch(e){msg(e.message,true);}};
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
