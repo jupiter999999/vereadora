@@ -4,7 +4,8 @@
     "name": "Cláudia Bezerra",
     "tagline": "ITAITINGA EM MOVIMENTO",
     "description": "Informação, inclusão e iniciativas que aproximam as pessoas.",
-    "instagram": "https://www.instagram.com/professoraclaudiavereadora/"
+    "instagram": "https://www.instagram.com/professoraclaudiavereadora/",
+    "ctaLabel": "Pré-inscrição"
   },
   "nav": [
     {
@@ -483,5 +484,49 @@
     ],
     "address": "Itaitinga, Ceará",
     "contact": ""
-  }
+  },
+  "misc": {
+    "verifyNote": "As atividades acima constam das publicações analisadas. Horários, idade mínima e vagas precisam de confirmação com os responsáveis.",
+    "trustTitle": "Transparência e responsabilidade",
+    "mandateHint": "Informações conforme publicações do perfil",
+    "aboutSectionLabel": "POR TRÁS DAS INICIATIVAS",
+    "newsSectionLabel": "INFORMAÇÃO PARA A COMUNIDADE",
+    "projectsSectionLabel": "PROJETOS E INICIATIVAS",
+    "archiveSectionLabel": "NA ÍNTEGRA",
+    "trustSectionLabel": "COMPROMISSO COM A INFORMAÇÃO",
+    "faqSectionLabel": "DÚVIDAS FREQUENTES",
+    "joinHint": "UM PRIMEIRO PASSO"
+  },
+  "trust": [
+    {
+      "title": "Origem identificada",
+      "description": "As notícias remetem às publicações originais. Datas e status são mantidos sem apresentar propostas como leis em vigor."
+    },
+    {
+      "title": "Projetos separados do mandato",
+      "description": "O Instituto e a atuação parlamentar possuem papéis distintos, apresentados em áreas próprias."
+    },
+    {
+      "title": "Proteção de dados",
+      "description": "O formulário é apenas demonstrativo. Qualquer cadastro real exigirá implantação segura e cuidados com dados de menores."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Já posso garantir minha vaga pelo site?",
+      "answer": "Não. O formulário desta apresentação é demonstrativo e não recebe inscrições. A abertura oficial de vagas precisa ser confirmada."
+    },
+    {
+      "question": "Todos os projetos são gratuitos?",
+      "answer": "O material recebido informa explicitamente gratuidade nas aulas de jiu-jitsu do Gereraú. As condições de outras atividades ainda dependem de confirmação."
+    },
+    {
+      "question": "O portal pertence à Prefeitura de Itaitinga?",
+      "answer": "Não. Este é um projeto de portal comunitário independente, ainda em demonstração, sem vínculo institucional com a Prefeitura."
+    },
+    {
+      "question": "Onde encontro a publicação original?",
+      "answer": "Abra uma notícia e escolha “Ver publicação original”. Você será direcionado ao Instagram correspondente."
+    }
+  ]
 }
