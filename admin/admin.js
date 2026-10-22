@@ -20,13 +20,13 @@ const sections={
  history:{title:'Histórico de versões',hint:'Consulte as versões que já foram publicadas e restaure uma delas como rascunho.'}
 };
 const sizes={hero:{w:1600,h:900,label:'1600 × 900 px · Capa principal'},project:{w:1200,h:800,label:'1200 × 800 px · Projeto social'},news:{w:1200,h:800,label:'1200 × 800 px · Galeria de notícias'},portrait:{w:900,h:1100,label:'900 × 1100 px · Retrato'}};
-let content=null,current='identity',authenticated=false,configured=false,csrf='',savedSha='',dirty=false,busy=false,search='',historyCache=[];
+let content=null,current='identity',authenticated=false,configured=false,canPublish=false,csrf='',savedSha='',dirty=false,busy=false,search='',historyCache=[];
 const msg=(text,error=false)=>{const el=$('#message');el.textContent=text||'';el.classList.toggle('error',!!error);};
 const setStatus=(s,type='')=>{const el=$('#status');el.innerHTML='<span class="status-dot"></span>'+s;el.className='status '+type;};
 async function request(action,opt={}){const r=await fetch('/api/cms?action='+encodeURIComponent(action)+(opt.query||''),{method:opt.method||'GET',headers:{'Content-Type':'application/json','X-CMS-CSRF':csrf},body:opt.body===undefined?undefined:JSON.stringify(opt.body),cache:'no-store',credentials:'same-origin'});let body;try{body=await r.json();}catch{body={error:'Resposta inválida do servidor.'};}if(!r.ok)throw new Error(body.error||'Erro HTTP '+r.status);return body;}
 function markDirty(){dirty=true;$('#dirtyChip').textContent='Alterações não salvas';$('#dirtyChip').className='hint-chip dirty';$('#saveState').textContent='Alterações locais ainda não foram salvas.';updateActions();pushPreview();}
 function markSaved(text){dirty=false;$('#dirtyChip').textContent='Rascunho salvo';$('#dirtyChip').className='hint-chip';$('#saveState').textContent=text||'Rascunho armazenado no GitHub. Ainda não publicado.';updateActions();}
-function updateActions(){const canWrite=authenticated&&configured&&!busy;$('#saveButton').disabled=!canWrite||!dirty;$('#publishButton').disabled=!canWrite||dirty;$('#discardButton').disabled=busy||!content;$('#loginButton').hidden=!configured||authenticated;$('#logoutButton').hidden=!authenticated;}
+function updateActions(){const canWrite=authenticated&&configured&&canPublish&&!busy;$('#saveButton').disabled=!canWrite||!dirty;$('#publishButton').disabled=!canWrite||dirty;$('#discardButton').disabled=busy||!content;$('#loginButton').hidden=!configured||authenticated;$('#logoutButton').hidden=!authenticated;}
 function useTab(id){if(!sections[id])return;current=id;document.querySelectorAll('.side-link').forEach(e=>e.classList.toggle('active',e.dataset.tab===id));$('#panelTitle').textContent=sections[id].title;$('#panelHint').textContent=sections[id].hint;$('#crumbCurrent').textContent=sections[id].title;draw();}
 function note(s){const e=H('p','section-note',s);return e;}
 function field(host,obj,k,label,type='text',mode=''){const row=H('div','field');const cap=H('label','field-label',label);row.append(cap);
@@ -76,19 +76,46 @@ async function draw(){if(!content)return;const def=sections[current],root=$('#ed
  if(def.nested){nestedCollection(root,o,def.nested[0],'Atividades de exemplo',def.nested[1]);}
  if(def.nestedMany){for(const [key,title] of def.nestedMany)nestedCollection(root,o,key,title,[['title','Nome do link'],['url','Endereço','url']]);}
 }
-async function loadHistory(root){root.append(note('Apenas conteúdos já PUBLICADOS aparecem aqui. Restaurar carrega a versão escolhida no editor, sem publicá-la automaticamente.'));if(!authenticated){root.append(H('p','empty-note','Entre com o GitHub para consultar o histórico.'));return;}try{const data=await request('history');historyCache=data.commits||[];if(!historyCache.length)root.append(H('p','empty-note','Sem histórico editorial.'));for(const rev of historyCache){const row=H('div','history-card');const text=H('div');text.append(H('strong','',rev.message),H('small','',new Date(rev.date).toLocaleString('pt-BR')+' · '+rev.sha.slice(0,8)));const b=H('button','btn secondary','Restaurar como rascunho');b.onclick=async()=>{if(!confirm('Carregar esta versão no editor? Suas edições locais não salvas serão perdidas.'))return;try{const data=await request('revision',{query:'&sha='+rev.sha});content=data.content;markDirty();useTab('identity');msg('Versão anterior carregada. Clique em Salvar rascunho e Publicar quando estiver satisfeito.');}catch(e){msg(e.message,true);}};row.append(text,b);root.append(row);}}catch(e){root.append(H('p','empty-note',e.message));}}
+async function loadHistory(root){root.append(note('Apenas conteúdos já PUBLICADOS aparecem aqui. Restaurar carrega a versão escolhida no editor, sem publicá-la automaticamente.'));if(!canPublish){root.append(H('p','empty-note','Histórico disponível após configurar a permissão de publicação do GitHub.'));return;}try{const data=await request('history');historyCache=data.commits||[];if(!historyCache.length)root.append(H('p','empty-note','Sem histórico editorial.'));for(const rev of historyCache){const row=H('div','history-card');const text=H('div');text.append(H('strong','',rev.message),H('small','',new Date(rev.date).toLocaleString('pt-BR')+' · '+rev.sha.slice(0,8)));const b=H('button','btn secondary','Restaurar como rascunho');b.onclick=async()=>{if(!confirm('Carregar esta versão no editor? Suas edições locais não salvas serão perdidas.'))return;try{const data=await request('revision',{query:'&sha='+rev.sha});content=data.content;markDirty();useTab('identity');msg('Versão anterior carregada. Clique em Salvar rascunho e Publicar quando estiver satisfeito.');}catch(e){msg(e.message,true);}};row.append(text,b);root.append(row);}}catch(e){root.append(H('p','empty-note',e.message));}}
 function pushPreview(){const frame=$('#previewFrame');if(!content||$('#previewLayer').hidden||!frame?.contentWindow)return;frame.contentWindow.postMessage({type:'PORTAL_CMS_PREVIEW',content:structuredClone(content)},location.origin);}
 async function boot(){
- try{const status=await request('status');configured=status.configured;authenticated=status.authenticated;csrf=status.csrf||'';
-  if(!configured){$('#setupPanel').hidden=false;setStatus('Modo de preparação','warn');}
-  else if(!authenticated){setStatus('Aguardando login','warn');msg('Entre com o GitHub para gravar rascunhos e publicar. Enquanto isso, você pode testar a edição e a prévia.');}
-  else setStatus('Administrador conectado');
-  let data;if(authenticated){data=await request('draft');savedSha=data.sha;content=data.content;if(data.branch==='main')$('#saveState').textContent='Você está vendo a versão publicada. Faça uma alteração para criar o rascunho.';}else{const r=await fetch('/dados/site.json',{cache:'no-store'});if(!r.ok)throw Error('dados/site.json indisponível');content=await r.json();}
+ try{
+  const status=await request('status');
+  configured=!!status.configured;authenticated=!!status.authenticated;canPublish=!!status.canPublish;csrf=status.csrf||'';
+  const gate=$('#authGate'),workspace=$('#editorWorkspace');
+  gate.hidden=authenticated;workspace.hidden=!authenticated;
+  if(!authenticated){
+   $('#authError').textContent=configured?'':'A autenticação ainda não está configurada na Vercel.';
+   $('#authSubmit').disabled=!configured;
+   return;
+  }
+  setStatus(canPublish?'Administrador conectado':'Acesso liberado — edição em preparação',canPublish?'':'warn');
+  $('#setupPanel').hidden=canPublish;
+  let data;
+  if(canPublish){
+   data=await request('draft');savedSha=data.sha;content=data.content;
+   if(data.branch==='main')$('#saveState').textContent='Versão publicada carregada. Edite para criar um rascunho.';
+  }else{
+   const response=await fetch('/dados/site.json',{cache:'no-store'});
+   if(!response.ok)throw Error('Não foi possível carregar o conteúdo publicado.');
+   content=await response.json();
+   $('#saveState').textContent='Prévia habilitada. Salvamento aguarda permissão de escrita do GitHub.';
+  }
   useTab('identity');updateActions();
  }catch(e){setStatus('Não foi possível carregar','error');msg('Erro ao abrir editor: '+e.message,true);}
 }
-$('#loginButton').onclick=()=>{location.href='/api/cms?action=login';};
-$('#logoutButton').onclick=async()=>{try{await request('logout',{method:'POST',body:{}});location.reload();}catch(e){msg(e.message,true);}};
+$('#authForm').addEventListener('submit',async event=>{
+ event.preventDefault();
+ const button=$('#authSubmit'),error=$('#authError');
+ error.textContent='';button.disabled=true;button.textContent='Verificando acesso...';
+ try{
+  await request('login',{method:'POST',body:{username:$('#authUser').value.trim(),password:$('#authPassword').value}});
+  $('#authPassword').value='';
+  await boot();
+ }catch(e){error.textContent=e.message||'Não foi possível entrar.';}
+ finally{button.disabled=false;button.innerHTML='Entrar no painel <span>→</span>';}
+});
+$('#logoutButton').onclick=async()=>{try{await request('logout',{method:'POST',body:{}});location.href='/adm';}catch(e){msg(e.message,true);}};
 document.querySelectorAll('.side-link').forEach(b=>b.addEventListener('click',()=>useTab(b.dataset.tab)));
 $('#previewButton').onclick=()=>{if(!content)return;$('#previewLayer').hidden=false;const frame=$('#previewFrame');frame.addEventListener('load',pushPreview,{once:true});pushPreview();};
 $('#closePreview').onclick=()=>{$('#previewLayer').hidden=true;};
@@ -110,7 +137,7 @@ $('#saveButton').onclick=async()=>{if(!authenticated||!dirty||busy)return;busy=t
  }catch(e){msg('Não foi possível salvar: '+e.message,true);}finally{busy=false;updateActions();}
 };
 $('#publishButton').onclick=async()=>{if(!authenticated||busy||dirty)return;if(!confirm('Publicar este rascunho no site oficial? Depois do deploy, todos os visitantes verão as alterações.'))return;busy=true;updateActions();msg('Publicando no GitHub…');try{const r=await request('publish',{method:'POST',body:{}});msg(r.alreadyPublished?'Este conteúdo já está publicado.':'Publicado no GitHub! A Vercel fará o deploy automaticamente.');$('#saveState').textContent='Versão enviada para publicação. Aguarde o status READY na Vercel.';}catch(e){msg(e.message,true);}finally{busy=false;updateActions();}};
-$('#discardButton').onclick=async()=>{if(!confirm('Descartar alterações e voltar à versão publicada?'))return;try{if(authenticated){await request('discard',{method:'POST',body:{}});const d=await request('draft');content=d.content;savedSha=d.sha;}else{content=await(await fetch('/dados/site.json',{cache:'no-store'})).json();}markSaved('Conteúdo restaurado para a última versão publicada.');draw();msg('Rascunho descartado.');}catch(e){msg(e.message,true);}};
+$('#discardButton').onclick=async()=>{if(!confirm('Descartar alterações e voltar à versão publicada?'))return;try{if(authenticated&&canPublish){await request('discard',{method:'POST',body:{}});const d=await request('draft');content=d.content;savedSha=d.sha;}else{content=await(await fetch('/dados/site.json',{cache:'no-store'})).json();}markSaved('Conteúdo restaurado para a última versão publicada.');draw();msg('Rascunho descartado.');}catch(e){msg(e.message,true);}};
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#previewLayer').hidden)$('#previewLayer').hidden=true;});
 boot();
