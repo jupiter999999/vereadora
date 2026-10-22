@@ -15,7 +15,7 @@ let visibleCount = 8;
 
 function escapeHtml(value){return String(value??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function dateBR(iso){const parts=String(iso).split('-').map(Number);if(parts.length!==3||!parts[0])return iso;return new Date(Date.UTC(parts[0],parts[1]-1,parts[2])).toLocaleDateString('pt-BR',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});}
-function safeImg(s){return typeof s==='string' && (/^assets\/[a-z0-9/_-]+\.(webp|png|jpg|jpeg)$/i.test(s)||/^data:image\/webp;base64,[a-z0-9+/=]+$/i.test(s))?s:'';}
+function safeImg(s){if(typeof s!=='string')return '';if(/^assets\/cms\/[a-z0-9-]+\.webp$/i.test(s)&&new URLSearchParams(location.search).has('preview'))return 'https://raw.githubusercontent.com/jupiter999999/vereadora/cms/rascunho/'+s;return (/^assets\/[a-z0-9/_-]+\.(webp|png|jpg|jpeg)$/i.test(s)||/^data:image\/webp;base64,[a-z0-9+/=]+$/i.test(s))?s:'';}
 function canonical(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 function filtered(){const cat=newsCategory.value;const term=canonical(newsSearch.value.trim());return publicacoes.filter(p=>(cat==='Todos'||p.category===cat)&&(!term||canonical([p.title,p.category,p.text,p.status].join(' ')).includes(term))).sort((a,b)=>b.date.localeCompare(a.date));}
 function renderArchive(){
