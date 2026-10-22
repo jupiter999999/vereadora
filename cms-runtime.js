@@ -3,7 +3,7 @@
 'use strict';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const link=x=>{const s=String(x||'').trim();return /^(#[a-zA-Z0-9_-]+|https:\/\/[^\s"'<>]+|mailto:[^\s"'<>]+|tel:[+0-9 -]+)$/.test(s)?s:'#inicio';};
-const photo=x=>{const s=String(x||'').trim();return /^assets\/[a-z0-9/_-]+\.(webp|png|jpg|jpeg)$/i.test(s)||/^data:image\/webp;base64,[A-Za-z0-9+/=]+$/.test(s)?s:'';};
+const photo=x=>{const s=String(x||'').trim();if(/^assets\/cms\/[a-z0-9-]+\.webp$/i.test(s)&&new URLSearchParams(location.search).has('preview'))return 'https://raw.githubusercontent.com/jupiter999999/vereadora/cms/rascunho/'+s;return /^assets\/[a-z0-9/_-]+\.(webp|png|jpg|jpeg)$/i.test(s)||/^data:image\/webp;base64,[A-Za-z0-9+/=]+$/.test(s)?s:'';};
 const svgArrow='<svg><use href="#i-arrow"/></svg>';
 const pick=(s,root=document)=>root.querySelector(s);
 const all=(s,root=document)=>[...root.querySelectorAll(s)];
