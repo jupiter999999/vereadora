@@ -75,6 +75,18 @@ module.exports=async function handler(req,res){
    const file=await getContent(s.token,sha);return answer(res,200,{content:JSON.parse(Buffer.from(file.content,'base64').toString('utf8'))});
   }
   if(!requirePost(req,res,s))return;
+  if(action==='asset'){
+   const payload=typeof req.body==='string'?JSON.parse(req.body):req.body;
+   const input=String(payload?.image||'');
+   if(!/^data:image\/webp;base64,[A-Za-z0-9+/=]+$/.test(input))return fail(res,400,'Imagem inválida. Use WebP gerado pelo editor.');
+   const bytes=Buffer.from(input.slice(input.indexOf(',')+1),'base64');
+   const dims=webpCheck(bytes);
+   if(![[1600,900],[1200,800],[900,1100]].some(([w,h])=>dims.width===w&&dims.height===h))return fail(res,400,'Dimensão não permitida. Confira o tamanho indicado no editor.');
+   await draftBranch(s.token);
+   const path='assets/cms/'+crypto.randomUUID()+'.webp';
+   await putFile(s.token,path,bytes,DRAFT);
+   return answer(res,200,{ok:true,path,width:dims.width,height:dims.height});
+  }
   if(action==='save'){
    const payload=typeof req.body==='string'?JSON.parse(req.body):req.body;
    const json=validateContent(payload?.content);
