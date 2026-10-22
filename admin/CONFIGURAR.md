@@ -1,58 +1,44 @@
-# Ativar o editor administrativo do portal
+# Painel administrativo do portal
 
-## O que já está implementado
-- `/admin/`: editor por seção, criação e exclusão de notícias, projetos, propostas, perguntas e links.
-- Upload com validação de dimensões **exatas**: capa **1600 × 900**, projeto **1200 × 800**, notícia **1200 × 800**, retrato **900 × 1100**. JPG/PNG/WebP de entrada; saída WebP de até 1 MB.
-- Galeria com até 8 fotografias por notícia; o destaque da home e o artigo permitem navegar pelas imagens.
-- Preview isolada: nenhuma alteração local é publicada automaticamente.
-- **Salvar rascunho**: commit na branch privada editorial do repositório (`cms/rascunho`, branch GitHub; ela tem a mesma visibilidade pública do repositório e NÃO deve receber informações privadas).
-- **Publicar**: fast-forward do GitHub para `main`; a Vercel faz o deploy em produção.
-- Histórico de versões e opção de restaurar como novo rascunho.
-- Login via **GitHub OAuth** restrito ao administrador indicado na variável `CMS_ALLOWED_LOGIN`.
+**Endereço:** https://vereadora-taupe.vercel.app/adm
 
-## Ativação sem compartilhar senhas ou tokens no ChatGPT
-1. Acesse [GitHub Developer Settings](https://github.com/settings/developers) → **OAuth Apps** → **New OAuth App**.
-2. Application name: **Portal Itaitinga em Movimento — CMS**.
-3. Homepage URL: `https://vereadora-taupe.vercel.app`.
-4. Authorization callback URL: `https://vereadora-taupe.vercel.app/api/cms?action=callback`.
-5. Após criar, copie o **Client ID** e gere o **Client Secret**. Guarde-os em local seguro. A autorização GitHub OAuth solicita escopo `repo`, que concede acesso amplo; utilize apenas em conta confiável. O código do backend só atua em `jupiter999999/vereadora`.
-6. Na Vercel, abra o projeto **vereadora** → **Settings → Environment Variables** e crie, em **Production**:
+## Acesso
 
-   | Variável | Valor |
-   |---|---|
-   | `GITHUB_CLIENT_ID` | Client ID obtido acima |
-   | `GITHUB_CLIENT_SECRET` | Client Secret obtido acima |
-   | `CMS_SESSION_SECRET` | Uma sequência aleatória de **pelo menos 32 caracteres** gerada fora do ChatGPT |
-   | `CMS_ALLOWED_LOGIN` | `jupiter999999` |
-   | `CMS_PUBLIC_URL` | `https://vereadora-taupe.vercel.app` |
+- A página `/adm` abre uma tela de login com **usuário e senha**.
+- A credencial é verificada em função serverless, sem expor a senha nem o hash no navegador.
+- A senha está protegida por **scrypt com salt aleatório**; a Vercel armazena apenas o hash.
+- A sessão dura até quatro horas, em cookie criptografado, `Secure`, `HttpOnly` e `SameSite=Lax`.
+- Todas as operações de edição precisam de sessão e validação CSRF.
+- O usuário de demonstração NÃO é público e não aparece no código-fonte.
 
-7. Faça **Redeploy** da produção para ativar as variáveis.
-8. Abra `https://vereadora-taupe.vercel.app/admin/` e clique **Entrar com GitHub**.
+## Editar o conteúdo do site
 
-**Importante:** nunca coloque `GITHUB_CLIENT_SECRET`, `CMS_SESSION_SECRET` ou o token OAuth no código-fonte ou em mensagens públicas.
+O painel permite editar capa, fotos com dimensões fixas, projetos, notícias, galerias, textos institucionais, links, botões, atuação pública, FAQ e rodapé. A tela `Visualizar prévia` mostra as alterações antes de publicá-las.
 
-## Fluxo editorial
-1. **Editar site** → selecionar seção.
-2. Alterar textos, botões, páginas e fotos.
-3. **Visualizar prévia** (inclusive em celular).
-4. **Salvar rascunho** no GitHub.
-5. **Publicar no site**; aguardar a Vercel indicar `READY`.
+## Para habilitar Salvar e Publicar no GitHub
 
-A edição NÃO grava inscrições reais ou informações de alunos. O formulário de pré-inscrição permanece demonstrativo; dados de menores deverão usar um banco privado independente, autenticação e regras de proteção de dados.
+A conta administrativa e a visualização funcionam **sem GitHub OAuth**. Já a gravação persistente das mudanças exige um token do repositório de destino.
 
-## Onde as informações ficam
-- `dados/site.json`: conteúdo público editorial, incluindo textos, notícias, links, ordem dos blocos e referências às fotos.
-- `assets/cms/`: imagens publicadas pelos administradores.
-- `main`: versão em produção.
-- `cms/rascunho`: alterações em preparação. O branch não é privativo; não inclua informações confidenciais.
-- Histórico GitHub: permite auditoria e recuperação de versões.
+1. No GitHub, entre em **Settings > Developer settings > Personal access tokens > Fine-grained tokens**.
+2. Crie token **exclusivamente** para `jupiter999999/vereadora`, com acesso **Contents: Read and write** (e **Metadata: Read** que é obrigatório), prazo de validade adequado.
+3. Em Vercel → projeto `vereadora` → **Settings > Environment Variables**, adicione `CMS_GITHUB_TOKEN` como variável criptografada no ambiente **Production** (e Preview se desejar testes).
+4. Faça um **Redeploy** da produção para carregar a variável.
+5. Entre em `/adm`, edite, clique **Visualizar prévia**, **Salvar rascunho** e **Publicar no site**.
 
-## Para migração posterior
-Os conteúdos são arquivos JSON/WEBP sem dependência proprietária. Na futura HostGator, o site e as imagens poderão ser migrados, mas a API de publicação por GitHub OAuth precisará ser adaptada para o backend da nova hospedagem.
+**Não envie o token pelo ChatGPT e não coloque o token em arquivos do GitHub.** Crie e configure diretamente nos painéis oficiais.
 
-## Limitações atuais
-- Exige configurar OAuth para autenticar e habilitar salvar/publicar.
-- Não oferece edição livre de HTML/CSS; edita os textos, imagens e componentes previstos no portal sem risco de destruir o layout.
-- As fotos novas são submetidas à dimensão exata por área.
-- O CMS editorial não substitui o futuro sistema de inscrição e turmas.
-- No momento há apenas um administrador autorizado, definido na configuração segura.
+Sem `CMS_GITHUB_TOKEN`, a pessoa ainda consegue entrar no editor e visualizar alterações; os botões de publicação ficam desabilitados com indicação clara. Nenhuma alteração é falsa ou salva somente no navegador como se estivesse online.
+
+A publicação usa o branch `cms/rascunho` como área de rascunho, com histórico no GitHub. O branch tem a visibilidade pública do repositório e só recebe conteúdo do site, nunca informações privadas.
+
+## Alterar usuário ou senha futuramente
+
+As variáveis seguras são `CMS_ADMIN_USER`, `CMS_ADMIN_PASSWORD_HASH` e `CMS_SESSION_SECRET`, todas do projeto `vereadora` (não do Espaço Flow). A senha é verificada por `crypto.scryptSync(password, Buffer.from(salt,'hex'), 64)`; `CMS_ADMIN_PASSWORD_HASH` recebe `salt:hash` em formato hexadecimal. A alteração das variáveis requer redeploy. Nunca coloque a senha em texto puro na Vercel ou GitHub.
+
+## Limites
+
+- Login e editor estão disponíveis, mas gravação e publicação dependem do token GitHub.
+- Inscrição de alunos segue **demonstração**, sem persistir dados pessoais.
+- O editor altera conteúdo e componentes existentes, não HTML/CSS arbitrário.
+- Não inclua informações pessoais dos estudantes no GitHub.
+- Para proteção adicional contra ataques de tentativa de senha, considere limite de requisições/rate limiting no gateway da Vercel.
