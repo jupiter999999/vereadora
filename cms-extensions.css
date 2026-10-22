@@ -1,0 +1,13 @@
+/* Extensões visuais do conteúdo editável: não altera a V5 sem necessidade */
+.cms-footer-contact{font-size:12px;color:#d5eddc;margin-top:14px}
+.cms-gallery{position:relative;background:#0d221a}
+.cms-gallery img.article-modal-image{display:block;width:100%;object-fit:contain;background:#102820;max-height:min(61vh,510px);height:auto;min-height:220px}
+.cms-gallery-controls{position:absolute;inset:auto 14px 14px;display:flex;align-items:center;justify-content:center;gap:13px;pointer-events:none}
+.cms-gallery-controls button,.cms-gallery-counter{pointer-events:auto;display:grid;place-items:center;color:#fff;background:#0a2922e8;border:1px solid #ffffff45;backdrop-filter:blur(8px);height:38px;min-width:38px;border-radius:12px;font-size:19px;box-shadow:0 6px 15px #06191330}
+.cms-gallery-controls button:hover{background:#149267}
+.cms-gallery-counter{font-size:11px;padding:0 13px;min-width:68px;letter-spacing:.6px}
+.hero-handwriting{white-space:pre-line}
+.nav a{transition:color .2s ease}
+.project-card img,.archive-item img{filter:saturate(1.05)}
+#cms-contact:empty{display:none}
+@media(max-width:730px){.cms-gallery img.article-modal-image{min-height:180px;max-height:350px}.cms-gallery-controls{inset:auto 10px 10px}.cms-gallery-controls button{width:35px;height:35px}}
