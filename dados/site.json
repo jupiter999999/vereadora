@@ -456,7 +456,8 @@
     "accentColor": "#d1de98",
     "buttonColor": "#d2e58b",
     "buttonTextColor": "#103a2b",
-    "paddingY": 45
+    "paddingY": 45,
+    "highlight": "esteja preparado."
   },
   "footer": {
     "heading": "Cláudia Bezerra",
