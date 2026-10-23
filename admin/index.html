@@ -8,6 +8,7 @@
 <title>Editor do site · Itaitinga em Movimento</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/admin/admin.css">
+<link rel="stylesheet" href="/admin/studio.css">
 </head>
 <body>
 <section class="auth-gate" id="authGate" aria-labelledby="authTitle">
@@ -119,7 +120,8 @@
   <div class="preview-canvas"><iframe id="previewFrame" src="/?preview=1" title="Prévia interativa do portal" loading="lazy"></iframe></div>
 </div>
 <dialog id="studioTourDialog" class="studio-tour-dialog" aria-labelledby="tourTitle"><div class="tour-head"><span class="kicker">GUIA INTERATIVO</span><button type="button" id="tourClose" class="tour-close" aria-label="Fechar tutorial">✕</button></div><div class="tour-progress" id="tourProgress"></div><div class="tour-icon" id="tourIcon">✧</div><p class="tour-counter" id="tourCounter">Passo 1</p><h2 id="tourTitle">Conheça o Studio</h2><p id="tourText"></p><div class="tour-bottom"><button type="button" id="tourPrevious" class="btn ghost">← Anterior</button><button type="button" id="tourNext" class="btn primary">Próximo →</button></div></dialog>
-<dialog id="studioChecklistDialog" class="studio-check-dialog" aria-labelledby="checkTitle"><div class="check-head"><div><span class="kicker">REVISÃO ANTES DE PUBLICAR</span><h2 id="checkTitle">Conferir alterações</h2></div><button type="button" id="checkClose" class="tour-close">✕</button></div><p>Revise os pontos abaixo antes de atualizar o portal. A publicação não será feita sem sua confirmação.</p><div id="checkItems"></div><div class="check-actions"><button id="checkCancel" type="button" class="btn ghost">Continuar editando</button><button id="checkConfirm" type="button" class="btn primary">Confirmar publicação →</button></div></dialog><script src="/admin/admin.js"></script>
+<dialog id="studioChecklistDialog" class="studio-check-dialog" aria-labelledby="checkTitle"><div class="check-head"><div><span class="kicker">REVISÃO ANTES DE PUBLICAR</span><h2 id="checkTitle">Conferir alterações</h2></div><button type="button" id="checkClose" class="tour-close">✕</button></div><p>Revise os pontos abaixo antes de atualizar o portal. A publicação não será feita sem sua confirmação.</p><div id="checkItems"></div><div class="check-actions"><button id="checkCancel" type="button" class="btn ghost">Continuar editando</button><button id="checkConfirm" type="button" class="btn primary">Confirmar publicação →</button></div></dialog><script src="/admin/crop.js"></script>
+<script src="/admin/admin.js"></script>
 <script src="/admin/visual.js"></script>
 <script src="/admin/studio.js"></script>
 </body>
