@@ -20,14 +20,17 @@
       ]
     }
   ],
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/adm",
-      "destination": "/admin/index.html"
+      "source": "/admin",
+      "destination": "/adm",
+      "permanent": false
     },
     {
-      "source": "/adm/",
-      "destination": "/admin/index.html"
+      "source": "/admin/",
+      "destination": "/adm",
+      "permanent": false
     }
-  ]
+  ],
+  "trailingSlash": false
 }
