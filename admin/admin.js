@@ -24,10 +24,20 @@ let content=null,current='identity',authenticated=false,configured=false,canPubl
 const msg=(text,error=false)=>{const el=$('#message');el.textContent=text||'';el.classList.toggle('error',!!error);};
 const setStatus=(s,type='')=>{const el=$('#status');el.innerHTML='<span class="status-dot"></span>'+s;el.className='status '+type;};
 async function request(action,opt={}){const r=await fetch('/api/cms?action='+encodeURIComponent(action)+(opt.query||''),{method:opt.method||'GET',headers:{'Content-Type':'application/json','X-CMS-CSRF':csrf},body:opt.body===undefined?undefined:JSON.stringify(opt.body),cache:'no-store',credentials:'same-origin'});let body;try{body=await r.json();}catch{body={error:'Resposta inválida do servidor.'};}if(!r.ok)throw new Error(body.error||'Erro HTTP '+r.status);return body;}
-function markDirty(){dirty=true;$('#dirtyChip').textContent='Alterações não salvas';$('#dirtyChip').className='hint-chip dirty';$('#saveState').textContent='Alterações locais ainda não foram salvas.';updateActions();pushPreview();}
-function markSaved(text){dirty=false;$('#dirtyChip').textContent='Rascunho salvo';$('#dirtyChip').className='hint-chip';$('#saveState').textContent=text||'Rascunho armazenado no GitHub. Ainda não publicado.';updateActions();}
+function markDirty(){dirty=true;$('#dirtyChip').textContent='Alterações não salvas';$('#dirtyChip').className='hint-chip dirty';$('#saveState').textContent='Alterações locais ainda não foram salvas.';updateActions();pushPreview();document.dispatchEvent(new CustomEvent('portal:admin-change'));}
+function markSaved(text){dirty=false;$('#dirtyChip').textContent='Rascunho salvo';$('#dirtyChip').className='hint-chip';$('#saveState').textContent=text||'Rascunho armazenado no GitHub. Ainda não publicado.';updateActions();document.dispatchEvent(new CustomEvent('portal:admin-change'));}
 function updateActions(){const canWrite=authenticated&&configured&&canPublish&&!busy;$('#saveButton').disabled=!canWrite||!dirty;$('#publishButton').disabled=!canWrite||dirty;$('#discardButton').disabled=busy||!content;$('#logoutButton').hidden=!authenticated;}
-function useTab(id){if(!sections[id])return;current=id;document.querySelectorAll('.side-link').forEach(e=>e.classList.toggle('active',e.dataset.tab===id));$('#panelTitle').textContent=sections[id].title;$('#panelHint').textContent=sections[id].hint;$('#crumbCurrent').textContent=sections[id].title;draw();}
+function useTab(id){
+ if(id!=='visual'&&!sections[id])return;
+ current=id;
+ document.querySelectorAll('.side-link').forEach(e=>e.classList.toggle('active',e.dataset.tab===id));
+ const visual=id==='visual', v=$('#visualWorkspace'), advanced=$('#advancedEditorLayout');
+ if(v)v.hidden=!visual;if(advanced)advanced.hidden=visual;
+ const title=visual?'Editor visual':sections[id].title;
+ $('#crumbCurrent').textContent=title;
+ if(visual){document.dispatchEvent(new CustomEvent('portal:visual-open'));return;}
+ $('#panelTitle').textContent=sections[id].title;$('#panelHint').textContent=sections[id].hint;draw();
+}
 function note(s){const e=H('p','section-note',s);return e;}
 function field(host,obj,k,label,type='text',mode=''){const row=H('div','field');const cap=H('label','field-label',label);row.append(cap);
  if(type==='image'){asset(row,obj,k,mode);host.append(row);return;}
@@ -101,7 +111,7 @@ async function boot(){
    content=await response.json();
    $('#saveState').textContent='Prévia habilitada. Salvamento aguarda permissão de escrita do GitHub.';
   }
-  useTab('identity');updateActions();
+  useTab('visual');updateActions();document.dispatchEvent(new CustomEvent('portal:admin-ready'));
  }catch(e){setStatus('Não foi possível carregar','error');msg('Erro ao abrir editor: '+e.message,true);}
 }
 $('#authForm').addEventListener('submit',async event=>{
@@ -140,4 +150,20 @@ $('#publishButton').onclick=async()=>{if(!authenticated||busy||dirty)return;if(!
 $('#discardButton').onclick=async()=>{if(!confirm('Descartar alterações e voltar à versão publicada?'))return;try{if(authenticated&&canPublish){await request('discard',{method:'POST',body:{}});const d=await request('draft');content=d.content;savedSha=d.sha;}else{content=await(await fetch('/dados/site.json',{cache:'no-store'})).json();}markSaved('Conteúdo restaurado para a última versão publicada.');draw();msg('Rascunho descartado.');}catch(e){msg(e.message,true);}};
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#previewLayer').hidden)$('#previewLayer').hidden=true;});
+window.PortalAdmin={
+ getContent:()=>content,
+ getSections:()=>sections,
+ getSection:id=>sections[id],
+ renderFields:(host,obj,spec)=>simpleFields(host,obj,spec),
+ notifyChange:()=>markDirty(),
+ openAdvanced:id=>useTab(id),
+ openVisual:()=>useTab('visual'),
+ isAuthenticated:()=>authenticated,
+ canPublish:()=>canPublish,
+ save:()=>$('#saveButton').click(),
+ publish:()=>$('#publishButton').click(),
+ isDirty:()=>dirty,
+ getCurrent:()=>current
+};
+
 boot();
