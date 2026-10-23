@@ -1,6 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s), H=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=String(text);return e;};
-const assetSrc=s=>typeof s==='string'&&s.startsWith('assets/cms/')?'https://raw.githubusercontent.com/jupiter999999/vereadora/cms/rascunho/'+s:s;
+const assetSrc=s=>typeof s==='string'&&s.startsWith('assets/cms/')?'https://raw.githubusercontent.com/jupiter999999/vereadora/cms/rascunho/'+s:typeof s==='string'&&s.startsWith('assets/')?'/'+s:s;
 const sections={
  identity:{title:'Identidade do site',hint:'Nome, descrição e endereço dos links institucionais.',fields:[['name','Nome exibido no site'],['tagline','Subtítulo / marca'],['description','Descrição do portal','textarea'],['instagram','Instagram oficial','url'],['ctaLabel','Texto do botão de inscrição']]},
  hero:{title:'Capa e fundo principal',hint:'Edite os três trechos do título, botões e a fotografia principal.',fields:[['eyebrow','Texto acima do título'],['line1','Título — linha 1'],['line2','Título — linha 2'],['line3','Título — trecho em verde'],['description','Texto da capa','textarea'],['image','Imagem de fundo','image','hero'],['photoCredit','Legenda da fotografia'],['handwriting','Frase decorativa','textarea'],['button1','Texto do botão principal'],['button1Url','Destino do botão principal','url'],['button2','Texto do segundo botão'],['button2Url','Destino do segundo botão','url']]},
@@ -60,27 +60,69 @@ function field(host,obj,k,label,type='text',mode=''){const row=H('div','field');
  if(type==='url')row.append(H('small','', 'Use links https://, #nome-da-seção, mailto: ou tel:.'));
  host.append(row);
 }
-function asset(row,obj,k,mode){const dim=sizes[mode]||sizes.project;const zone=H('div','asset-field');const image=H('img','asset-preview');image.alt='Prévia da imagem atual';image.src=assetSrc(obj[k])||'/assets/hero-group.webp';image.onerror=()=>{image.style.opacity=.15};zone.append(image);
- const info=H('div','asset-info');info.append(H('strong','',dim.label),H('p','','JPG, PNG ou WebP. Recorte e ajuste no editor até ficar na proporção correta. Saída: '+dim.w+' × '+dim.h+' px em WebP (máx. 1 MB).'));
- const upload=H('label','asset-upload','↑ Trocar fotografia');const inp=H('input');inp.type='file';inp.accept='image/png,image/jpeg,image/webp';upload.append(inp);info.append(upload);const err=H('small','asset-error');info.append(err);zone.append(info);row.append(zone);
- inp.addEventListener('change',async()=>{
-  const file=inp.files?.[0];if(!file)return;
-  err.textContent='';
+function asset(row,obj,k,mode,onApplied){
+ const dim=sizes[mode]||sizes.project,zone=H('div','asset-field');
+ const image=H('img','asset-preview');image.alt='Fotografia atual';image.src=assetSrc(obj[k])||'/assets/hero-group.webp';image.onerror=()=>{image.style.opacity=.2;};
+ zone.append(image);
+ const info=H('div','asset-info');
+ info.append(H('strong','',dim.label),H('p','','JPG, PNG ou WebP. Aumente, arraste ou estique a foto no editor de enquadramento. Tamanho final: '+dim.w+' × '+dim.h+' px (WebP).'));
+ const actions=H('div','asset-actions');
+ const upload=H('label','asset-upload','↑ Selecionar nova foto'),input=H('input');
+ input.type='file';input.accept='image/png,image/jpeg,image/webp';upload.append(input);actions.append(upload);
+ const adjust=H('button','asset-adjust','✥ Ajustar foto atual');adjust.type='button';
+ adjust.disabled=!obj[k];
+ actions.append(adjust);info.append(actions);
+ const error=H('small','asset-error');info.append(error);zone.append(info);row.append(zone);
+ function apply(uri){obj[k]=uri;image.src=uri;image.style.opacity='1';adjust.disabled=false;markDirty();if(typeof onApplied==='function')onApplied(uri);msg('Foto enquadrada para '+dim.w+' × '+dim.h+' px. Revise o resultado e salve seu rascunho.');}
+ input.addEventListener('change',async()=>{
+  const file=input.files?.[0];if(!file)return;
+  error.textContent='';
   try{
-   if(file.size>12000000)throw Error('A imagem original ultrapassa 12 MB.');
-   if(!/^image\/(png|jpeg|webp)$/.test(file.type))throw Error('Envie JPG, PNG ou WebP.');
+   if(file.size>12000000)throw Error('A foto original ultrapassa 12 MB.');
+   if(!/^image\/(png|jpeg|webp)$/.test(file.type))throw Error('Envie somente JPG, PNG ou WebP.');
    const uri=await window.PortalImageCrop.open(file,dim);
-   if(!uri)return;
-   obj[k]=uri;image.src=uri;image.style.opacity='1';markDirty();
-   msg('Foto ajustada para '+dim.label+'. Confira a prévia e salve quando estiver satisfeito.');
-  }catch(e){err.textContent=e.message||'Não foi possível processar a imagem.';}finally{inp.value='';}
+   if(uri)apply(uri);
+  }catch(e){error.textContent=e.message||'Não foi possível abrir a foto.';}finally{input.value='';}
+ });
+ adjust.addEventListener('click',async()=>{
+  if(!obj[k])return;
+  error.textContent='';
+  try{
+   const uri=await window.PortalImageCrop.open(assetSrc(obj[k]),dim);
+   if(uri)apply(uri);
+  }catch(e){error.textContent=(e.message||'Não foi possível reenquadrar a foto atual.')+' Você também pode escolher uma nova foto.';}
  });
 }
-function gallery(row,obj,k,mode){if(!Array.isArray(obj[k]))obj[k]=obj.image?[obj.image]:[];const grid=H('div','gallery-grid');const repaint=()=>{grid.replaceChildren();obj[k].forEach((src,i)=>{const tile=H('div','gallery-piece');const img=H('img');img.src=assetSrc(src);img.alt='Foto '+(i+1);const del=H('button','small-btn danger','Remover foto '+(i+1));del.type='button';del.addEventListener('click',()=>{obj[k].splice(i,1);obj.image=obj[k][0]||'';markDirty();repaint()});tile.append(img,del);grid.append(tile);});};repaint();row.append(grid);
- const control={image:''};const uploadArea=H('div');asset(uploadArea,control,'image',mode);const fileInput=uploadArea.querySelector('input[type=file]');const observer=new MutationObserver(()=>{if(control.image&&!obj[k].includes(control.image)){if(obj[k].length>=8){msg('No máximo 8 fotos por notícia.',true);control.image='';return;}obj[k].push(control.image);obj.image=obj[k][0];control.image='';markDirty();repaint();}});observer.observe(uploadArea,{attributes:true,subtree:true,attributeFilter:['src']}); // event custom after acceptance below
- const original=fileInput.onchange;
- fileInput.addEventListener('change',()=>setTimeout(()=>{if(control.image){if(obj[k].length<8){obj[k].push(control.image);obj.image=obj[k][0];repaint();markDirty();}else msg('No máximo 8 fotos por notícia.',true);control.image='';}},500));
- row.append(uploadArea);
+function gallery(row,obj,k,mode){
+ if(!Array.isArray(obj[k]))obj[k]=obj.image?[obj.image]:[];
+ const grid=H('div','gallery-grid');
+ const draw=()=>{
+  grid.replaceChildren();
+  obj[k].forEach((src,i)=>{
+   const tile=H('div','gallery-piece'),img=H('img');
+   img.src=assetSrc(src);img.alt='Foto '+(i+1);
+   const adjust=H('button','small-btn','✥ Reenquadrar foto '+(i+1));adjust.type='button';
+   adjust.addEventListener('click',async()=>{
+    try{
+     const uri=await window.PortalImageCrop.open(assetSrc(obj[k][i]),sizes[mode]||sizes.news);
+     if(!uri)return;
+     obj[k][i]=uri;obj.image=obj[k][0]||'';markDirty();draw();
+     msg('Enquadramento atualizado na galeria. Salve o rascunho para guardar.');
+    }catch(e){msg(e.message||'Não foi possível editar a foto.',true);}
+   });
+   const del=H('button','small-btn danger','Remover');del.type='button';
+   del.addEventListener('click',()=>{obj[k].splice(i,1);obj.image=obj[k][0]||'';markDirty();draw();});
+   tile.append(img,adjust,del);grid.append(tile);
+  });
+ };
+ draw();row.append(grid);
+ const addArea=H('div'),newImage={image:''};
+ asset(addArea,newImage,'image',mode,(uri)=>{
+  if(obj[k].length>=8){msg('Limite de 8 fotos por notícia. Exclua uma antes de adicionar outra.',true);return;}
+  obj[k].push(uri);obj.image=obj[k][0]||'';newImage.image='';draw();
+ });
+ row.append(addArea);
+ row.append(H('small','form-tip','Você pode adicionar até 8 fotos e reenquadrar cada uma separadamente.'));
 }
 function simpleFields(host,obj,fields){for(const [key,label,type,mode] of fields)field(host,obj,key,label,type,mode);}
 function repeated(host,key,spec,options={}){if(!Array.isArray(content[key]))content[key]=[];const values=content[key];const head=H('div','filter-row');head.append(H('span','field-count',values.length+' itens cadastrados'));if(options.filter){const searchInput=H('input');searchInput.type='search';searchInput.placeholder='Buscar notícias pelo título...';searchInput.value=search;searchInput.addEventListener('input',()=>{search=searchInput.value.toLowerCase();list.replaceChildren();renderList()});head.append(searchInput);}host.append(head);
