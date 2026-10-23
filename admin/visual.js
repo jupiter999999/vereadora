@@ -21,12 +21,15 @@ function annotate(){
  const rows=(sel,section,options)=>[...d.querySelectorAll(sel)].slice(0,120).forEach((e,i)=>{const o=options?options(e,i):{index:i};if(o!==null)bind(e,section,o||{});});
  mark('.brand','identity',{fields:['name','tagline'],title:'Nome e identidade do portal'});
  mark('#mainNav','nav',{title:'Menu do site'});
+ rows('#mainNav>a','nav',(_,i)=>({index:i,title:'Item '+(i+1)+' do menu'}));
  mark('.nav-join','identity',{fields:['ctaLabel'],title:'Botão do cabeçalho'});
  mark('.hero-eyebrow','hero',{fields:['eyebrow'],title:'Chamada da capa'});
  mark('#hero-title','hero',{fields:['line1','line2','line3'],title:'Título principal'});
  mark('.hero-text','hero',{fields:['description'],title:'Texto da capa'});
  mark('.hero-image','hero',{fields:['image','photoCredit'],title:'Foto de fundo'});
  mark('.hero-buttons','hero',{fields:['button1','button1Url','button2','button2Url'],title:'Botões principais'});
+ mark('.hero-buttons>a:first-child','hero',{fields:['button1','button1Url'],title:'Botão principal'});
+ mark('.hero-buttons>a:nth-child(2)','hero',{fields:['button2','button2Url'],title:'Botão secundário'});
  mark('.hero-handwriting','hero',{fields:['handwriting'],title:'Frase sobre a foto'});
  rows('.impact-item','focus',(_,i)=>({index:i,title:'Destaque '+(i+1)}));
  rows('.quick-card','shortcuts',(_,i)=>({index:i,title:'Acesso rápido '+(i+1)}));
@@ -50,6 +53,8 @@ function annotate(){
  mark('.questions>div:first-child','headlines',{fields:['faq'],title:'Título das perguntas'});
  rows('.question-list details','faq',(_,i)=>({index:i,title:'Pergunta '+(i+1)}));
  mark('.footer','footer',{title:'Rodapé, contatos e links'});
+ rows('.footer-menu>div:first-child a','footer',(_,i)=>({index:i,linkGroup:'links1',title:'Link do rodapé — coluna 1'}));
+ rows('.footer-menu>div:nth-child(2) a','footer',(_,i)=>({index:i,linkGroup:'links2',title:'Link do rodapé — coluna 2'}));
 }
 function positionPencil(){
  if(!pencil||!hovered?.isConnected||!active()){if(pencil)pencil.style.display='none';return;}
@@ -64,11 +69,11 @@ function showInspector(sel){
  const site=editor.getContent(),section=sel.section,def=editor.getSection(section);
  if(!def)return;
  const index=Number.isInteger(sel.index)?sel.index:null;
- const obj=index===null?site[section]:site[section]?.[index];
+ const obj=sel.linkGroup?site.footer?.[sel.linkGroup]?.[index]:(index===null?site[section]:site[section]?.[index]);
  if(!obj|| (def.collection&&index===null)){editor.openAdvanced(section);return;}
  selected=sel;head.textContent=sel.title||def.title;hint.textContent=def.hint||'Altere os campos e veja o resultado ao lado.';
  body.replaceChildren();
- let spec=def.collection?def.spec:def.fields||[];
+ let spec=sel.linkGroup?[['title','Nome do link'],['url','Destino do link','url']]:(def.collection?def.spec:def.fields||[]);
  if(sel.fields?.length)spec=spec.filter(x=>sel.fields.includes(x[0]));
  if(spec.length)editor.renderFields(body,obj,spec);
  else {const txt=document.createElement('p');txt.className='visual-field-note';txt.textContent='Use a edição completa para cadastrar e organizar os itens desta área.';body.append(txt);}
