@@ -31,34 +31,49 @@
 <div class="workspace" id="editorWorkspace" hidden>
   <aside class="sidebar" aria-label="Navegação do editor">
     <a class="sidebar-brand" href="/" target="_blank" rel="noopener noreferrer"><span class="brand-mark">✳</span><span><strong>Cláudia Bezerra</strong><small>CENTRAL DE CONTEÚDO</small></span></a>
-    <div class="side-caption">ADMINISTRAÇÃO</div>
-    <button class="side-link active" type="button" data-tab="visual"><span>✎</span> Editar site visualmente</button>
-    <button class="side-link" type="button" data-tab="identity"><span>◈</span> Identidade do site</button>
-    <button class="side-link" type="button" data-tab="hero"><span>✦</span> Capa e fundo</button>
-    <button class="side-link" type="button" data-tab="nav"><span>☷</span> Cabeçalho e menu</button>
-    <button class="side-link" type="button" data-tab="focus"><span>◉</span> Destaques rápidos</button>
-    <button class="side-link" type="button" data-tab="shortcuts"><span>⊞</span> Acessos e botões</button>
-    <button class="side-link" type="button" data-tab="projects"><span>♧</span> Projetos sociais</button>
-    <button class="side-link" type="button" data-tab="articles"><span>▤</span> Notícias e publicações</button>
-    <button class="side-link" type="button" data-tab="mandate"><span>▥</span> Atuação pública</button>
-    <button class="side-link" type="button" data-tab="about"><span>◎</span> Quem somos</button>
-    <button class="side-link" type="button" data-tab="enrollment"><span>☑</span> Pré-inscrições</button>
-    <button class="side-link" type="button" data-tab="footer"><span>▱</span> Rodapé e contato</button>
-    <button class="side-link" type="button" data-tab="headlines"><span>✎</span> Títulos das seções</button>
-    <button class="side-link" type="button" data-tab="trust"><span>◇</span> Transparência</button>
-    <button class="side-link" type="button" data-tab="faq"><span>?</span> Perguntas e respostas</button>
-    <button class="side-link" type="button" data-tab="misc"><span>✍</span> Textos adicionais</button>
-    <button class="side-link" type="button" data-tab="history"><span>◴</span> Histórico de versões</button>
+    <div class="side-caption">VISÃO GERAL</div>
+    <button class="side-link active" type="button" data-tab="dashboard" data-help="Visão geral do site, atalhos e estado das publicações."><span>▦</span> Painel inicial</button>
+    <button class="side-link" type="button" data-tab="visual" data-help="Clique nos lápis do site para editar os blocos em tempo real."><span>✎</span> Editar site visualmente</button>
+    <div class="side-caption">CONTEÚDO</div>
+    <button class="side-link" type="button" data-tab="articles" data-help="Crie, altere e destaque as notícias; adicione várias fotos."><span>▤</span> Notícias e publicações</button>
+    <button class="side-link" type="button" data-tab="projects" data-help="Cadastre projetos sociais e defina imagens e links."><span>♧</span> Projetos sociais</button>
+    <button class="side-link" type="button" data-tab="mandate" data-help="Administre as notícias de propostas e atuação parlamentar, com status claros."><span>▥</span> Atuação pública</button>
+    <button class="side-link" type="button" data-tab="media" data-help="Consulte as fotos existentes no site e saiba onde aparecem."><span>▧</span> Biblioteca de fotos</button>
+    <div class="side-caption">APARÊNCIA E TEXTOS</div>
+    <button class="side-link" type="button" data-tab="identity" data-help="Altere nome, subtítulo, descrição e identidade."><span>◈</span> Identidade</button>
+    <button class="side-link" type="button" data-tab="hero" data-help="Troque a foto da capa, o título e os botões do começo do site."><span>✦</span> Capa e fundo</button>
+    <button class="side-link" type="button" data-tab="nav" data-help="Organize e altere links do menu."><span>☷</span> Menu e cabeçalho</button>
+    <button class="side-link" type="button" data-tab="focus" data-help="Edite as informações da faixa verde abaixo da capa."><span>◉</span> Faixa de destaque</button>
+    <button class="side-link" type="button" data-tab="shortcuts" data-help="Personalize os atalhos que levam às seções do site."><span>⊞</span> Botões e atalhos</button>
+    <button class="side-link" type="button" data-tab="about" data-help="Edite a apresentação, a fotografia e os textos institucionais."><span>◎</span> Quem somos</button>
+    <button class="side-link" type="button" data-tab="footer" data-help="Altere o rodapé, informações de contato e links."><span>▱</span> Rodapé e contato</button>
+    <button class="side-link" type="button" data-tab="headlines" data-help="Edite os títulos principais de cada seção."><span>✎</span> Títulos do site</button>
+    <button class="side-link" type="button" data-tab="trust" data-help="Mantenha atualizadas as informações de transparência."><span>◇</span> Transparência</button>
+    <button class="side-link" type="button" data-tab="faq" data-help="Crie e edite perguntas frequentes."><span>?</span> Perguntas frequentes</button>
+    <button class="side-link" type="button" data-tab="misc" data-help="Edite pequenos rótulos, legendas e informações adicionais."><span>✍</span> Outros textos</button>
+    <div class="side-caption">GESTÃO E AJUDA</div>
+    <button class="side-link" type="button" data-tab="enrollment" data-help="Personalize os textos do formulário demonstrativo. Ainda não recebe dados de alunos."><span>☑</span> Pré-inscrição demo</button>
+    <button class="side-link" type="button" data-tab="history" data-help="Consulte o histórico de versões salvas para restaurar conteúdos anteriores."><span>◴</span> Histórico</button>
+    <button class="side-link" type="button" data-tab="help" data-help="Acompanhe o tutorial passo a passo de cada função do painel."><span>ⓘ</span> Central de ajuda</button>
+    <button class="side-tour" type="button" id="sideStartTour">✧ Iniciar tutorial guiado</button>
     <div class="side-bottom"><a href="/" target="_blank" rel="noopener noreferrer">↗ Ver site público</a><p>Conteúdo editorial separado dos futuros cadastros de alunos.</p></div>
   </aside>
   <main class="main">
     <header class="topbar">
-      <div><div class="crumb">Portal / Administração / <span id="crumbCurrent">Identidade do site</span></div><h1>Editar site</h1><p class="top-sub">Edite com tranquilidade. Nada entra no ar antes de publicar.</p></div>
-      <div class="top-actions"><span class="status" id="status"><span class="status-dot"></span> Carregando</span><button type="button" id="logoutButton" class="btn ghost" hidden>Sair</button></div>
+      <div><div class="crumb">Portal / Administração / <span id="crumbCurrent">Visão geral</span></div><h1>Studio de Conteúdo</h1><p class="top-sub">Seu portal, suas publicações e ferramentas num só lugar.</p></div>
+      <div class="top-actions"><button type="button" id="topHelp" class="btn secondary">? Ajuda</button><span class="status" id="status"><span class="status-dot"></span> Carregando</span><button type="button" id="logoutButton" class="btn ghost" hidden>Sair</button></div>
     </header>
     <div class="app-message" id="message" role="status" aria-live="polite"></div>
     <div class="help-panel" id="setupPanel" hidden><strong>Ativação da área administrativa</strong><p>O acesso ao painel está protegido. Para salvar edições diretamente no GitHub e publicar na Vercel, falta configurar a permissão de gravação exclusiva do repositório. As alterações podem ser visualizadas antes de configurar essa opção.</p><a target="_blank" rel="noopener noreferrer" href="/admin/CONFIGURAR.md">Como habilitar publicação ↗</a></div>
 
+    <section id="studioDashboard" class="studio-dashboard" hidden aria-label="Visão geral do site">
+      <div class="studio-welcome"><div><span class="studio-eyebrow">SEU ESPAÇO DE TRABALHO</span><h2>Bem-vinda ao Studio <span>✳</span></h2><p>Escolha o que deseja atualizar. Nós mostramos o caminho de cada tarefa.</p><div class="studio-welcome-actions"><button type="button" data-studio-go="visual" class="btn primary">✎ Editar o site</button><button type="button" id="dashboardTour" class="btn secondary">▷ Tutorial passo a passo</button></div></div><div class="studio-welcome-graphic">◈<small>ITAITINGA<br>EM MOVIMENTO</small></div></div>
+      <div class="studio-metrics" id="studioMetrics"></div>
+      <div class="studio-subheading"><div><span class="kicker">ACESSO RÁPIDO</span><h3>O que vamos fazer hoje?</h3></div><small>Clique em um cartão para começar.</small></div>
+      <div class="studio-cards" id="studioCards"></div>
+      <div class="studio-bottom-grid"><div class="studio-box"><div class="studio-subheading"><div><span class="kicker">PUBLICAÇÃO</span><h3>Seu fluxo de trabalho</h3></div></div><ol class="studio-workflow"><li><span>1</span><div><strong>Editar conteúdo</strong><small>Mude textos, imagens ou notícias.</small></div></li><li><span>2</span><div><strong>Revisar na prévia</strong><small>Confira a página no celular e no computador.</small></div></li><li><span>3</span><div><strong>Salvar rascunho</strong><small>Guarde o trabalho sem publicar.</small></div></li><li><span>4</span><div><strong>Publicar no site</strong><small>Atualize a versão online quando estiver pronto.</small></div></li></ol></div><div class="studio-box studio-status-box"><span class="kicker">SITUAÇÃO ATUAL</span><h3>Preparado para atualizar</h3><div id="studioPublishStatus" class="studio-status-message"></div><button type="button" data-studio-go="help" class="btn secondary">Entenda todas as funções →</button></div></div>
+    </section>
+    <section id="studioHelp" class="studio-help" hidden aria-label="Guia de utilização"><div class="studio-box"><span class="kicker">APRENDA A USAR</span><h2>Aprenda cada função em poucos passos.</h2><p>O tutorial mostra os botões reais na tela, e a ajuda de cada seção explica o que pode ser feito.</p><div class="studio-help-steps" id="studioHelpSteps"></div><button type="button" id="helpStartTour" class="btn primary">▷ Começar visita guiada</button></div></section>
     <section id="visualWorkspace" class="visual-workspace" hidden aria-label="Editor visual do site">
       <div class="visual-toolbar">
         <div class="visual-toolbar-copy"><strong><span class="visual-live-dot"></span> Edição visual</strong><span>Clique em qualquer área com lápis para modificar. Só aparece no site após publicar.</span></div>
@@ -104,7 +119,9 @@
   <div class="preview-top"><div><strong>Prévia do site</strong><small>As alterações abaixo ainda não foram publicadas.</small></div><div class="preview-controls"><button type="button" data-device="desktop" class="selected">Computador</button><button type="button" data-device="mobile">Celular</button><button type="button" id="closePreview" class="btn dark">Fechar prévia ✕</button></div></div>
   <div class="preview-canvas"><iframe id="previewFrame" src="/?preview=1" title="Prévia interativa do portal" loading="lazy"></iframe></div>
 </div>
-<script src="/admin/admin.js"></script>
+<dialog id="studioTourDialog" class="studio-tour-dialog" aria-labelledby="tourTitle"><div class="tour-head"><span class="kicker">GUIA INTERATIVO</span><button type="button" id="tourClose" class="tour-close" aria-label="Fechar tutorial">✕</button></div><div class="tour-progress" id="tourProgress"></div><div class="tour-icon" id="tourIcon">✧</div><p class="tour-counter" id="tourCounter">Passo 1</p><h2 id="tourTitle">Conheça o Studio</h2><p id="tourText"></p><div class="tour-bottom"><button type="button" id="tourPrevious" class="btn ghost">← Anterior</button><button type="button" id="tourNext" class="btn primary">Próximo →</button></div></dialog>
+<dialog id="studioChecklistDialog" class="studio-check-dialog" aria-labelledby="checkTitle"><div class="check-head"><div><span class="kicker">REVISÃO ANTES DE PUBLICAR</span><h2 id="checkTitle">Conferir alterações</h2></div><button type="button" id="checkClose" class="tour-close">✕</button></div><p>Revise os pontos abaixo antes de atualizar o portal. A publicação não será feita sem sua confirmação.</p><div id="checkItems"></div><div class="check-actions"><button id="checkCancel" type="button" class="btn ghost">Continuar editando</button><button id="checkConfirm" type="button" class="btn primary">Confirmar publicação →</button></div></dialog><script src="/admin/admin.js"></script>
 <script src="/admin/visual.js"></script>
+<script src="/admin/studio.js"></script>
 </body>
 </html>
