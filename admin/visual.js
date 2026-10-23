@@ -65,7 +65,7 @@ function showInspector(sel){
  if(!def)return;
  const index=Number.isInteger(sel.index)?sel.index:null;
  const obj=index===null?site[section]:site[section]?.[index];
- if(!obj){editor.openAdvanced(section);return;}
+ if(!obj|| (def.collection&&index===null)){editor.openAdvanced(section);return;}
  selected=sel;head.textContent=sel.title||def.title;hint.textContent=def.hint||'Altere os campos e veja o resultado ao lado.';
  body.replaceChildren();
  let spec=def.collection?def.spec:def.fields||[];
@@ -88,7 +88,7 @@ function installFrame(){
  d.getElementById('cmsVisualPencil')?.remove();
  d.getElementById('cmsVisualStyle')?.remove();
  const css=d.createElement('style');css.id='cmsVisualStyle';
- css.textContent='.ve-target{cursor:pointer!important;outline:2px dashed transparent;outline-offset:3px;transition:outline-color .15s,filter .15s;position:relative}.ve-target:hover,.ve-target.ve-current{outline:2px dashed #12a979!important;outline-offset:3px}#cmsVisualPencil{position:fixed;z-index:2147483600;max-width:185px;border:1px solid #aeefd2;background:linear-gradient(135deg,#0a7655,#10a673);color:#fff;padding:8px 12px;border-radius:9px;box-shadow:0 8px 24px #02452e45;font:700 12px/1.2 "Segoe UI",Arial,sans-serif;cursor:pointer;display:none;align-items:center;gap:7px;white-space:nowrap;outline:2px solid #fff}#cmsVisualPencil:hover,#cmsVisualPencil:focus-visible{background:#064d3a}html{scroll-behavior:auto!important}';
+ css.textContent='.ve-target{cursor:pointer!important;outline:2px dashed transparent;outline-offset:3px;transition:outline-color .15s,filter .15s}.ve-target:hover,.ve-target.ve-current{outline:2px dashed #12a979!important;outline-offset:3px}#cmsVisualPencil{position:fixed;z-index:2147483600;max-width:185px;border:1px solid #aeefd2;background:linear-gradient(135deg,#0a7655,#10a673);color:#fff;padding:8px 12px;border-radius:9px;box-shadow:0 8px 24px #02452e45;font:700 12px/1.2 "Segoe UI",Arial,sans-serif;cursor:pointer;display:none;align-items:center;gap:7px;white-space:nowrap;outline:2px solid #fff}#cmsVisualPencil:hover,#cmsVisualPencil:focus-visible{background:#064d3a}html{scroll-behavior:auto!important}';
  d.head.append(css);
  pencil=d.createElement('button');pencil.type='button';pencil.id='cmsVisualPencil';pencil.textContent='✎ Editar este bloco';d.body.append(pencil);
  pencil.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();if(hovered?.__cmsSelection)showInspector(hovered.__cmsSelection);});
