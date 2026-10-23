@@ -6,7 +6,7 @@ const $=s=>document.querySelector(s);
 const frame=$('#visualFrame'),stage=$('#visualWorkspace');
 if(!editor||!frame||!stage)return;
 const head=$('#visualInspectorTitle'),hint=$('#visualInspectorHint'),body=$('#visualInspectorBody');
-let selected=null,hovered=null,pencil=null,moveHandle=null,dragging=null,frameDoc=null,ready=false,queued=false;
+let selected=null,hovered=null,pencil=null,moveHandle=null,dragging=null,frameDoc=null,ready=false,queued=false,previewPending=false;
 const active=()=>!stage.hidden&&editor.isAuthenticated()&&!!editor.getContent();
 const articleIndex=id=>(editor.getContent()?.articles||[]).findIndex(x=>Number(x.id)===Number(id));
 function bind(el,section,opts={}){
@@ -143,9 +143,13 @@ function installFrame(){
 }
 function sync(){
  if(!active()||!frame.contentWindow)return;
+ if(queued){previewPending=true;return;}
+ queued=true;
  frame.contentWindow.postMessage({type:'PORTAL_CMS_PREVIEW',content:structuredClone(editor.getContent())},location.origin);
- if(queued)return;queued=true;
- setTimeout(()=>{queued=false;annotate();positionPencil();},100);
+ setTimeout(()=>{
+  queued=false;annotate();positionPencil();
+  if(previewPending){previewPending=false;sync();}
+ },55);
 }
 function activate(){
  if(!active())return;
