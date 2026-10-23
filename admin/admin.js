@@ -119,7 +119,7 @@ async function boot(){
    return;
   }
   setStatus(canPublish?'Administrador conectado':'Acesso liberado — edição em preparação',canPublish?'':'warn');
-  $('#setupPanel').hidden=canPublish;
+  $('#setupPanel').hidden=true;
   let data;
   if(canPublish){
    data=await request('draft');savedSha=data.sha;content=data.content;
