@@ -11,6 +11,44 @@ const setText=(s,text)=>{const e=pick(s);if(e&&text!==undefined)e.textContent=St
 const setImg=(s,url)=>{const e=pick(s),p=photo(url);if(e&&p)e.src=p;};
 const setAnchor=(el,x)=>{if(!el)return;el.href=link(x);if(/^https:\/\//.test(el.href)){el.target='_blank';el.rel='noopener noreferrer';}};
 const safeId=n=>Number.isSafeInteger(Number(n))?Number(n):0;
+
+const cmsColor=(v,fallback)=>/^#[0-9a-fA-F]{6}$/.test(String(v||''))?v:fallback;
+const cmsNum=(v,min,max,fallback)=>Number.isFinite(Number(v))?Math.max(min,Math.min(max,Number(v))):fallback;
+const cmsFont=v=>({georgia:'Georgia, "Times New Roman", serif',serif:'"Times New Roman", Georgia, serif',modern:'"Segoe UI", Arial, sans-serif',arial:'Arial, Helvetica, sans-serif',trebuchet:'"Trebuchet MS", Arial, sans-serif'})[v]||'';
+function cmsMoveEnrollment(section,place){
+ const main=pick('#conteudo');if(!main||!section)return;
+ const targets={ 'before-projects':'#projetos','before-news':'#noticias','after-news':'#sobre','before-mandate':'#atuacao','after-mandate':'#transparencia','after-transparency':'.questions'};
+ const target=pick(targets[place]||targets['after-mandate'],main);
+ if(target&&target!==section)main.insertBefore(section,target);
+}
+function cmsStyleEnrollment(enr){
+ const section=pick('#inscricoes'),grid=pick('#inscricoes .enroll-grid');
+ if(!section||!grid)return;
+ cmsMoveEnrollment(section,enr.sectionPosition);
+ section.style.background=cmsColor(enr.backgroundColor,'#144b39');
+ section.style.paddingTop=cmsNum(enr.paddingY,20,110,45)+'px';
+ section.style.paddingBottom=cmsNum(enr.paddingY,20,110,45)+'px';
+ const layout=['normal','reverse','center'].includes(enr.layout)?enr.layout:'normal';
+ grid.classList.toggle('cms-enroll-reverse',layout==='reverse');
+ grid.classList.toggle('cms-enroll-center',layout==='center');
+ grid.classList.add('cms-enroll-editor-grid');
+ grid.style.setProperty('--cms-offset-x',cmsNum(enr.offsetX,-100,100,0)+'px');
+ grid.style.setProperty('--cms-offset-y',cmsNum(enr.offsetY,-100,100,0)+'px');
+ const title=pick('h2',grid),desc=pick(':scope > div:first-child > p:not(.section-label)',grid);
+ const label=pick(':scope > div:first-child > .section-label',grid);
+ const btn=pick('.enroll-action button',grid),notice=pick('.enroll-action > span',grid);
+ if(title){
+  title.style.color=cmsColor(enr.titleColor,'#ffffff');
+  title.style.fontFamily=cmsFont(enr.titleFont);
+  title.style.fontSize='min('+cmsNum(enr.titleSize,26,70,44)+'px, 11vw)';
+  const em=pick('em',title);if(em)em.style.color=cmsColor(enr.accentColor,'#d1de98');
+ }
+ if(label){label.style.color=cmsColor(enr.accentColor,'#d1de98');label.style.fontFamily=cmsFont(enr.fontFamily);}
+ if(desc){desc.style.color=cmsColor(enr.textColor,'#cfe2d7');desc.style.fontSize=cmsNum(enr.textSize,12,23,15)+'px';desc.style.fontFamily=cmsFont(enr.fontFamily);}
+ if(notice){notice.style.color=cmsColor(enr.textColor,'#cfe2d7');notice.style.fontFamily=cmsFont(enr.fontFamily);}
+ if(btn){btn.style.background=cmsColor(enr.buttonColor,'#d2e58b');btn.style.color=cmsColor(enr.buttonTextColor,'#103a2b');btn.style.fontSize=cmsNum(enr.buttonSize,11,22,14)+'px';btn.style.fontFamily=cmsFont(enr.fontFamily);}
+}
+
 function render(data){
  if(!data||typeof data!=='object')return;
  window.PORTAL_CMS_DATA=data;
@@ -58,9 +96,16 @@ function render(data){
  const aboutBtn=pick('.about-copy a.btn');if(aboutBtn){aboutBtn.innerHTML=esc(about.button||'Conhecer perfil')+' '+svgArrow;setAnchor(aboutBtn,about.url);}
  setText('#atuacao .section-header h2',head.mandate);
  const mandate=pick('.mandate-grid');if(mandate&&Array.isArray(data.mandate))mandate.innerHTML=data.mandate.map((x,i)=>'<button type="button" data-article="'+safeId(x.articleId)+'" class="mandate-card"><span class="mandate-index">'+String(i+1).padStart(2,'0')+' / '+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.description)+'</p><span class="mandate-end"><span>'+esc(x.status)+'</span>'+svgArrow+'</span></button>').join('');
- const en=pick('.enroll-grid h2');if(en)en.textContent=enr.headline||'';setText('.enroll-grid>div:first-child>p:not(.section-label)',enr.description);
+ const en=pick('.enroll-grid h2');
+ if(en){
+  const title=String(enr.headline||''),highlight=String(enr.highlight||'').trim();
+  const at=highlight?title.toLocaleLowerCase('pt-BR').indexOf(highlight.toLocaleLowerCase('pt-BR')):-1;
+  en.innerHTML=at<0?esc(title):esc(title.slice(0,at))+'<em>'+esc(title.slice(at,at+highlight.length))+'</em>'+esc(title.slice(at+highlight.length));
+ }
+ setText('.enroll-grid>div:first-child>p:not(.section-label)',enr.description);
  const enBtn=pick('.enroll-action button');if(enBtn)enBtn.innerHTML=esc(enr.button||'Conhecer a pré-inscrição')+' '+svgArrow;
  setText('.enroll-action>span',enr.warning);
+ cmsStyleEnrollment(enr);
  const projSel=pick('#demoProject');if(projSel&&Array.isArray(enr.projects))projSel.innerHTML='<option value="">Escolha uma atividade</option>'+enr.projects.map(x=>'<option value="'+esc(x.title)+'">'+esc(x.title)+' — '+esc(x.status||'disponibilidade a confirmar')+'</option>').join('');
  setText('.footer-brand',foot.heading);const fbrand=pick('.footer-brand');if(fbrand)fbrand.innerHTML=esc(foot.heading||'')+'<span>'+esc(foot.tagline||'')+'</span>';
  setText('.footer-top>div:first-child>p',foot.description);setText('.footer-bottom>span:first-child',foot.copyright);setText('.footer-bottom>span:nth-child(2)',foot.notice);
