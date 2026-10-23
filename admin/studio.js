@@ -230,6 +230,10 @@ function initialize(){
  if(!api.isAuthenticated())return;
  initHistory();fillDashboard();renderHelp();decorateHelp();
  const id=api.getCurrent();setSections(id);
+ try{if(localStorage.getItem('vereadora-studio-tour-v3')!=='complete'){
+  localStorage.setItem('vereadora-studio-tour-v3','complete');
+  setTimeout(()=>startTour(0),450);
+ }}catch{}
 }
 addUndo();
 document.addEventListener('portal:admin-ready',initialize);
