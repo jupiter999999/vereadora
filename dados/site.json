@@ -1,1 +1,548 @@
-{"version":1,"identity":{"name":"Cláudia Bezerra","tagline":"ITAITINGA EM MOVIMENTO","description":"Informação, inclusão e iniciativas que aproximam as pessoas.","instagram":"https://www.instagram.com/professoraclaudiavereadora/","ctaLabel":"Pré-inscrição"},"nav":[{"title":"Início","url":"#inicio"},{"title":"Projetos","url":"#projetos"},{"title":"Notícias","url":"#noticias"},{"title":"Atuação","url":"#atuacao"},{"title":"Quem somos","url":"#sobre"},{"title":"Transparência","url":"#transparencia"}],"hero":{"eyebrow":"COMUNIDADE · ESPORTE · CULTURA · INCLUSÃO","line1":"Mais oportunidades","line2":"para uma Itaitinga","line3":"que avança......","description":"Conectando a comunidade a iniciativas que transformam vidas pelo esporte, pela cultura, pela educação e pela inclusão.","image":"assets/hero-group.webp","photoCredit":"Foto real · Núcleo de jiu-jitsu no Gereraú, Itaitinga","handwriting":"Pessoas.\nProjetos.\nFuturos possíveis.","button1":"Conheça os projetos","button1Url":"#projetos","button2":"Acompanhar notícias","button2Url":"#noticias"},"focus":[{"title":"Comunidade","description":"gente que faz a diferença"},{"title":"Projetos sociais","description":"esporte, cultura e inclusão"},{"title":"Itaitinga, Ceará","description":"ações nos nossos bairros"},{"title":"Mais oportunidades","description":"iniciativas para as famílias"}],"shortcuts":[{"title":"Projetos sociais","description":"Esporte, cultura e inclusão para a comunidade.","label":"Ver projetos","url":"#projetos"},{"title":"Pré-inscrições","description":"Conheça como será o cadastro nos projetos.","label":"Saiba como participar","url":"#inscricoes"},{"title":"Últimas notícias","description":"Publicações e ações divulgadas em Itaitinga.","label":"Ver notícias","url":"#noticias"},{"title":"Atuação pública","description":"Propostas, indicações e assuntos de interesse local.","label":"Conhecer propostas","url":"#atuacao"}],"projects":[{"id":"jitsu","category":"ESPORTE","title":"Jiu-jitsu no Gereraú","description":"Um núcleo gratuito anunciado para a comunidade do Mutirão, promovendo disciplina e convivência.","image":"assets/projeto-jiujitsu.webp","articleId":7,"button":"Conheça a iniciativa"},{"id":"bale","category":"CULTURA","title":"Balé que inspira","description":"Criatividade, movimento e momentos especiais em uma atividade infantil divulgada pelo Instituto.","image":"assets/projeto-bale.webp","articleId":2,"button":"Conheça a iniciativa"},{"id":"inclusao","category":"INCLUSÃO","title":"Conexões que incluem","description":"Parceria divulgada com o CuidarTEA, aproximando tecnologia e cuidado às famílias atípicas.","image":"assets/projeto-inclusao.webp","articleId":13,"button":"Saiba mais"}],"headlines":{"projects":"Projetos em destaque","news":"Últimas notícias","archive":"Explore as publicações","archiveDesc":"Notícias com link para a publicação original do perfil. Conteúdos pessoais e eleitorais não entram nas inscrições sociais.","mandate":"Atuação parlamentar","faq":"Antes de participar"},"featuredNewsIds":[7,2,24,8],"articles":[{"id":2,"date":"2026-10-21","title":"Atividade de balé reúne crianças em momento de criatividade","category":"Projetos","status":"Atividade de balé; gratuito e vagas não confirmados","url":"https://www.instagram.com/p/Dew8W2okTYr/","image":"assets/projeto-bale.webp","text":"🎀UM DIA DE MUITA ALEGRIA E DIVERSÃO! 💖🩰\n\nOntem, o Instituto Itaitinga em Movimento @itaitingaemmovimento promoveu a primeira aula de Cabelo Maluco no Balé, e foi um momento especial, cheio de alegria, criatividade, brincadeiras e muitos sorrisos! 🌈🥰\n\nFoi lindo ver nossas bailarinas se divertindo, soltando a imaginação e compartilhando momentos tão especiais. Mais do que uma aula, vivemos um dia de união, carinho e muita felicidade! 💕\n\nNosso objetivo é proporcionar experiências que vão além da dança, criando memórias felizes e fortalecendo os laços entre nossas crianças. 🩰❤️\n\nAgradecemos a todos que fazem parte desse projeto e em especial nossa madrinha @professoraclaudiavereadora e todos aqueles que contribuem para que momentos como esse aconteçam!\n\nInstituto Itaitinga em Movimento — transformando vidas através do esporte, da cultura e do amor! 💗\n\n#itaitingaemmovimento #Balé #CabeloMaluco #InfânciaFeliz #itaitinga","images":["assets/projeto-bale.webp"],"featured":false},{"id":3,"date":"2026-10-08","title":"Rua H, no Parque Dom Pedro, recebe pavimentação","category":"Comunidade","status":"Notícia: obra municipal, atribuição compartilhada","url":"https://www.instagram.com/p/DePe_SxpfjL/","image":"assets/noticia-rua-h.webp","text":"🚧🏗️ É TANTA OBRA ACONTECENDO EM ITAITINGA QUE SÓ AGORA CONSEGUIMOS GRAVAR ESSE ANTES E DEPOIS! 😍👏\n\n📍 Início da Rua H – Bairro Parque Dom Pedro\n\nOlha só essa transformação! 😍 Onde antes havia lama, buracos e dificuldades para os moradores, hoje temos uma rua asfaltada, trazendo mais mobilidade, segurança e qualidade de vida para nossa população! ❤️\n\nSão tantas obras acontecendo em nosso município que só agora tivemos a oportunidade de voltar aqui e mostrar como ficou essa transformação!\n\nQuero agradecer ao nosso prefeito @marquinhostavaresitaitinga , ao vice @celsorodriguesitaitinga e à Secretaria de Infraestrutura pelo compromisso com o desenvolvimento da nossa cidade. 👏\n\n💚 Itaitinga não para! É trabalho, progresso e transformação chegando aos nossos bairros!\n\nSeguimos acompanhando, ouvindo a população e trabalhando por uma Itaitinga cada vez melhor!\n\n❤️ Gostou dessa transformação? Curta, comente e compartilhe! Vamos mostrar o quanto nossa cidade está avançando!\n\n#professoracláudia #itaitinga #parquedompedro #itaitingace #itaitingaemmovimento","images":["assets/noticia-rua-h.webp"],"featured":false},{"id":4,"date":"2026-10-15","title":"Homenagem pelo Dia dos Professores","category":"Comunidade","status":"Homenagem a professores","url":"https://www.instagram.com/p/DehWtfsJSqv/","image":null,"text":"📚❤️🤍Feliz Dia dos Professores!  Hoje é dia de homenagear cada professor, cada educador e todas as pessoas que carregam no coração o verdadeiro espírito de educar, ensinar, acolher e transformar vidas.\n\nSer educador vai muito além de transmitir conhecimentos. É acreditar no potencial de cada pessoa, despertar sonhos, abrir caminhos e plantar sementes que darão frutos por toda a vida.\n\nMinha admiração e gratidão a todos que fazem da educação uma missão de amor, dedicação e compromisso com o próximo.\n\nQue Deus abençoe cada professor e cada pessoa que, de alguma forma, contribui para construir um mundo melhor por meio da educação.\n\n👏📚 Feliz Dia dos Professores! Educar é um ato de amor que transforma gerações!\n\nProfessora Cláudia 🤍","images":[],"featured":false},{"id":5,"date":"2026-10-09","title":"Pavimentação da Rua Turmalina chega ao Ancuri","category":"Comunidade","status":"Pedido nº 251/2025; 2 mídias não salvas","url":"https://www.instagram.com/p/DeRjpI-pH7_/","image":null,"text":"🚧🚜 O ASFALTO COMEÇOU A CHEGAR NO ANCURi! 🤍🤍👏\n\nMuitas pessoas estavam me perguntando: “Professora Cláudia, quando o asfalto vai chegar ao Ancuri ?”\n\nE agora temos uma ótima notícia! 🙌 Os trabalhos de limpeza e preparação já começaram, dando início à pavimentação asfáltica e dando continuidade à pavimentação da Rua Turmalina por completo, agora do lado do Ancuri! Os serviços seguirão para as outras ruas do bairro.\n\nEssa conquista também faz parte do nosso Requerimento nº 251/2025, aprovado na Câmara Municipal de Itaitinga, que solicita melhorias para a Rua Turmalina, incluindo futuramente a construção de uma passagem molhada, possibilitando a ligação entre os bairros Ancuri e Barrocão, criando uma importante via alternativa para a população.\n\n👏 Agradeço ao prefeito @marquinhostavaresitaitinga , ao vice-prefeito @celsorodriguesitaitinga e ao secretário de Infraestrutura @ffabiano_s pela atenção às solicitações do nosso mandato!\n\n💚 Seguimos trabalhando, cobrando e acompanhando cada etapa para que mais melhorias cheguem à nossa população!\n\n📢 O trabalho continua, e o Ancuri segue avançando!\n\n❤️ Curta, comente e compartilhe!\n\n#ProfessoraCláudia #Itaitinga #Ancuri #RuaTurmalina #Asfalto Infraestrutura","images":[],"featured":false},{"id":7,"date":"2026-10-15","title":"Núcleo gratuito de jiu-jitsu no Gereraú","category":"Projetos","status":"Núcleo gratuito de jiu-jitsu; vagas não confirmadas","url":"https://www.instagram.com/p/DegtpsBloMo/","image":"assets/noticia-jiujitsu.webp","text":"🥋💙🤍 MAIS UM NÚCLEO, MAIS VIDAS TRANSFORMADAS! 🚀👏\n\nÉ com muita alegria que anunciamos mais uma conquista! O Instituto Itaitinga em Movimento @itaitingaemmovimento continua ampliando seus projetos sociais e agora chega ao bairro Gereraú, na comunidade do Mutirão, com mais um núcleo de JIU-JITSU! 🥋👏\n\nCom o apoio da nossa madrinha, vereadora Professora Cláudia @professoraclaudiavereadora , e do nosso presidente de honra, professor Régis @professorregisitaitinga , seguimos levando esporte, inclusão e oportunidades para cada vez mais famílias de Itaitinga!\n\n🥋 O JIU-JITSU TRANSFORMA VIDAS!\n\nMuito além do esporte, ele ensina disciplina, respeito, autoconfiança, controle emocional e valores que nossos alunos levarão para toda a vida.\n\n💙 E O MELHOR: AS AULAS SÃO TOTALMENTE GRATUITAS!\n\n📍 Novo núcleo: Comunidade do Mutirão – Bairro Gereraú.\n\n🤝 UM CONVITE ESPECIAL AOS EMPRESÁRIOS!\n\nVocê que é pequeno, médio ou grande empresário e deseja fazer a diferença na vida de crianças, adolescentes e famílias, venha ser nosso parceiro!\n\nEstamos sempre de portas abertas para receber qualquer tipo de ajuda, seja com materiais, equipamentos, serviços, apoio financeiro ou outras contribuições.\n\n❤️ Não importa o tamanho da sua contribuição, mas a transformação que podemos realizar juntos!\n\nCada novo núcleo representa mais oportunidades, mais sonhos e mais vidas transformadas. Agradecemos aos professores, voluntários, parceiros e famílias que acreditam nessa missão!\n\n🚀 E NÃO VAMOS PARAR POR AQUI! VEM MUITO MAIS POR AÍ!\n\n📍 Conheça nossa sede: Rua José Barros de Alencar, nº 245 – Barrocão, Itaitinga/CE.\n\n❤️ Curta | 💬 Comente | 📲 Compartilhe\n🤝 Marque um empresário que pode fazer parte dessa corrente do bem!\n\nJUNTOS SOMOS MAIS FORTES! JUNTOS TRANSFORMAMOS VIDAS! 💙💛\n\n#itaitingaemmovimento #professoracláudia #itaitingace #itaitinga #itaitingaceará","images":["assets/noticia-jiujitsu.webp"],"featured":false},{"id":8,"date":"2026-10-19","title":"Projeto propõe sinalização visual, tátil e em Braille","category":"Atuação","status":"PL 051/2026; proposta apresentada, não lei vigente","url":"https://www.instagram.com/p/Dersx39JSbW/","image":"assets/noticia-braille.webp","text":"Mais inclusão e acessibilidade para Itaitinga! 💙\n\nApresentamos o Projeto de Lei nº 051/2026, que torna obrigatória a sinalização visual, tátil e em Braille nas unidades escolares e nos órgãos públicos municipais.\n\nNas escolas, essa iniciativa garante mais autonomia, segurança e pertencimento aos estudantes com deficiência visual. Nos órgãos municipais, facilita o acesso aos serviços públicos, permitindo que cada cidadão identifique os ambientes e se locomova com mais independência.\n\nAs placas existentes serão substituídas gradativamente, conforme a necessidade de reposição, e as novas já deverão seguir os padrões de acessibilidade.\n\nIncluir é garantir que todos possam acessar os mesmos espaços com dignidade e autonomia!\n\nCurta, comente e compartilhe. 💙\n\n#ProfessoraCláudia #VereadoraDaInclusão #Itaitinga #Acessibilidade #Braille Inclusão","images":["assets/noticia-braille.webp"],"featured":false},{"id":10,"date":"2026-10-13","title":"Proposta busca igualdade de licença-maternidade para mães adotivas","category":"Atuação","status":"Projeto sobre licença-maternidade de mães adotivas; não aprovado no material","url":"https://www.instagram.com/p/DebhS7dJC4h/","image":"assets/noticia-maternidade.webp","text":"💜 MÃE É MÃE, SEJA BIOLÓGICA OU ADOTIVA! 👩‍👧‍👦❤️\n\nO Supremo Tribunal Federal (STF) reafirmou um direito fundamental: mães adotivas devem ter os mesmos direitos das mães biológicas à licença-maternidade!\n\n📢 E aqui em Itaitinga, estamos trabalhando para garantir que esse direito também esteja assegurado na nossa legislação municipal!\n\nComo vereadora, estou apresentando um Projeto de Lei que altera a Lei Municipal nº 386/2010, corrigindo uma desigualdade que ainda existe no Estatuto dos Servidores Públicos do nosso município.\n\n✅ Licença-maternidade de 120 dias, com possibilidade de prorrogação por mais 60 dias, nas mesmas condições das mães biológicas.\n\n✅ Igualdade de direitos, independentemente da idade da criança adotada.\n\n❤️ Porque o amor de mãe não nasce apenas do ventre, mas também do coração!\n\nSeguimos trabalhando por uma Itaitinga mais justa, humana e inclusiva!\n\nProfessora Cláudia 💜\nA vereadora da inclusão e dos projetos sociais!\n\n📲 Gostou dessa iniciativa? Curta, comente e compartilhe! Sua participação fortalece nossa luta por mai direitos e igualdade!\n\n#itaitinga #itaitingaemmovimento #itaitingace #professoraclaudia #itaitingaceará","images":["assets/noticia-maternidade.webp"],"featured":false},{"id":12,"date":"2026-10-16","title":"Sessão solene homenageia educadores","category":"Educação","status":"Sessão solene de homenagem a professores","url":"https://www.instagram.com/p/DeiS0zKuAYV/","image":"assets/noticia-educadores.webp","text":"📚❤️ Mais um pouquinho do que foi a nossa Sessão Solene em homenagem aos professores, um momento especial de emoção, reconhecimento e gratidão a cada educador que dedica sua vida à missão de ensinar e transformar vidas.\n\nComo professora e vereadora, foi uma alegria participar dessa homenagem e celebrar aqueles que fazem a diferença na educação do nosso município.\n\n❤️ Parabéns a todos os professores! Vocês são essenciais na construção de um futuro melhor!","images":["assets/noticia-educadores.webp"],"featured":false},{"id":13,"date":"2026-10-07","title":"Parceria com CuidarTEA aborda inclusão e tecnologia","category":"Projetos","status":"Parceria CuidarTEA e instituto; sem inscrição comprovada","url":"https://www.instagram.com/p/DeNVN0Tpt6R/","image":"assets/projeto-inclusao.webp","text":"💙 INCLUSÃO, TECNOLOGIA E PARCERIA! 🚀\nFico muito feliz em ver o CuidarTEA @cuidartea.oficial desenvolvendo projetos que unem tecnologia, inovação e cuidado com as famílias atípicas. Como mãe atípica e defensora da inclusão, foi justamente esse olhar para o futuro que mais me chamou a atenção.\n\nTambém me alegra saber que pude contribuir para aproximar e fortalecer essa parceria entre o CuidarTEA @cuidartea.oficial e o Instituto Itaitinga em Movimento @itaitingaemmovimento , instituição da qual tenho a honra de ser madrinha. 🤝🤍 Ver essa parceria crescendo e dando frutos mostra a importância de conectarmos boas ideias com quem deseja transformar vidas.\n\nDesejo que o CuidarTEA avance cada vez mais, alcance seus objetivos e continue desenvolvendo soluções que contribuam para o presente e, principalmente, para o futuro das famílias atípicas de Itaitinga e de todo o Ceará. 🧩🚀\n\nSeguimos construindo pontes entre inclusão, tecnologia e oportunidades. Porque quando boas parcerias se encontram, quem ganha é a nossa gente! 💙\n\nProfessora Cláudia — a vereadora da inclusão.","images":["assets/projeto-inclusao.webp"],"featured":false},{"id":14,"date":"2026-10-08","title":"Dia do Nordestino e educação","category":"Educação","status":"Dia do Nordestino e estatísticas mencionadas; checar antes de publicar","url":"https://www.instagram.com/p/DePBcVpJ5GG/","image":null,"text":"🌵☀️ 8 DE OUTUBRO | DIA DO NORDESTINO! 🤍🤍\n\nSer nordestino é carregar no coração uma história de força, coragem, fé e superação! É ter orgulho das nossas raízes, da nossa cultura e de um povo que nunca desiste de lutar por dias melhores. ❤️\n\nE hoje quero destacar uma conquista que enche nosso coração de orgulho: o Ceará é referência nacional em educação pública! 📚👏\n\n📊 Os números comprovam esse destaque! Em 2024, o Ceará alcançou 85% das crianças alfabetizadas até o final do 2º ano do ensino fundamental, enquanto a média brasileira foi de 59,2%.\n\nNo IDEB, nosso estado também avançou, alcançando 6,8 nos anos iniciais e 5,6 nos anos finais do ensino fundamental da rede pública, em 2025.\n\nComo professora, acredito que a educação é um dos caminhos mais poderosos para transformar vidas, romper desigualdades e construir um futuro melhor para nossas crianças. 💚\n\nNeste Dia do Nordestino, minha homenagem a todos os nordestinos e nordestinas, especialmente ao nosso povo cearense e de nossa Itaitinga , que demonstra diariamente sua força, seu talento e sua capacidade de transformar realidades!\n\n🌵 Tenho orgulho de ser nordestina, tenho orgulho de ser cearense e tenho orgulho de ser professora! ❤️\n\n💬 E você, também tem orgulho das suas raízes nordestinas?\n\n❤️ Curta, comente e compartilhe!\n\n#DiaDoNordestino #OrgulhoNordestino #OrgulhoCearense #Ceará #itaitinga","images":[],"featured":false},{"id":15,"date":"2026-10-01","title":"Homenagem pelo Dia do Vereador","category":"Comunidade","status":"Dia do Vereador","url":"https://www.instagram.com/p/Dd9PsXMJRdn/","image":null,"text":"Hoje, 1º de outubro, celebramos o Dia do Vereador! 💙\n\nQuero parabenizar todos os meus colegas vereadores que, junto comigo, vêm trabalhando e contribuindo para a transformação de Itaitinga.\n\nCada debate, cada projeto, cada requerimento e cada decisão tomada nesta Casa Legislativa carregam a responsabilidade de representar a nossa população e buscar melhorias para o nosso município.\n\nQue possamos continuar fortalecendo o Poder Legislativo, com diálogo, respeito, compromisso e, acima de tudo, muito trabalho por nossa gente.\n\nParabéns a todos os vereadores de Itaitinga! 👏\n\nSeguimos juntos, trabalhando por uma Itaitinga cada vez melhor! 💙\n@demetriussaoficial, @nenbessa, @leandro_do_popia_, @mauroguimares, @vereadoradoquinha, @fabioladoacilon, @lucia_queirozserpa, @diassisdobarrocao, @edisionovaisitaitinga, @profedinaldo_, @clenildovereador, @vereadordanieltopiqueiro @professoraclaudiavereadora @auriceliocavalcante_vereador @nilson_itaitinga","images":[],"featured":false},{"id":16,"date":"2026-10-16","title":"Visita à Creche Gervásio no Ancuri","category":"Educação","status":"Visita à Creche Gervásio","url":"https://www.instagram.com/p/DejkpA_pV4E/","image":"assets/noticia-creche.webp","text":"🏫❤️🤍 Dia de visitar a Creche Gervásio, no Ancuri! Um lugar que faz parte da minha história e pelo qual tenho um carinho muito especial! ❤️\n\nComo professora e ex-diretora desta instituição, é sempre uma alegria retornar, reencontrar pessoas queridas e acompanhar de perto esse espaço tão importante para a educação das nossas crianças.\n\nHoje, como vereadora, sigo com o mesmo compromisso de sempre: defender uma educação pública de qualidade, inclusiva e acolhedora para todas as nossas crianças. 📚💙\n@marquinhostavaresitaitinga @celsorodriguesitaitinga \n\nPorque quem ama a educação nunca deixa de cuidar dela! ❤️\n\n#ProfessoraCláudia #Educação #CrecheGervásio #Ancuri #Itaitinga VereadoraDaInclusão","images":["assets/noticia-creche.webp"],"featured":false},{"id":17,"date":"2026-10-01","title":"Pedido de melhorias na Rua Turmalina","category":"Comunidade","status":"Pavimentação Rua Turmalina; requerimento 251/2025","url":"https://www.instagram.com/p/Dd9lDanp1K0/","image":null,"text":"🏗️ MAIS UM PEDIDO NOSSO SENDO ATENDIDO!\n\nNosso Requerimento nº 251/2025, aprovado no plenário da Câmara Municipal, solicitou melhorias importantes para a Rua Turmalina no bairro Barrocão. E agora já podemos acompanhar a realização do serviço de pavimentação asfáltica, trazendo melhores condições de tráfego e mobilidade para a população.\n\nO requerimento também prevê, futuramente, a construção de uma passagem molhada na Rua Turmalina, possibilitando a ligação entre os bairros Ancuri e Barrocão e criando uma importante via alternativa para quem precisa se deslocar pela região.\n\nAgradeço ao prefeito @marquinhostavaresitaitinga , ao vice @celsorodriguesitaitinga e ao secretário de Infraestrutura @ffabiano_s pela atenção e por atenderem mais um pedido do nosso mandato.\n\nSeguimos acompanhando e trabalhando para que cada etapa desse requerimento se torne realidade! 💚\n\n👉 Curta, comente e compartilhe!","images":[],"featured":false},{"id":20,"date":"2026-09-24","title":"Rua Dona Esmeralda recebe pavimentação","category":"Comunidade","status":"Rua Dona Esmeralda; indicação 156/2026","url":"https://www.instagram.com/p/DdrZIV1lu-P/","image":"assets/noticia-rua.webp","text":"Nosso trabalho é ouvir a população, apresentar as demandas e acompanhar para que elas se tornem realidade! Uma demanda que chegou até o @itaitingaemmovimento onde sou madrinha 🙏❤️\n\nHoje quero agradecer ao Executivo Municipal, na pessoa do prefeito @marquinhostavaresitaitinga , do vice @celsorodriguesitaitinga e do secretário de Infraestrutura @ffabiano_s , pelo atendimento ao nosso Requerimento de Indicação nº 156/2026, no qual solicitamos a pavimentação em intertravado para a Rua Dona Esmeralda, no bairro Jabuti.\n\nUma rua que por muitos anos enfrentou lama e dificuldades agora vive uma nova realidade. Onde antes havia transtorno, hoje temos mais mobilidade, dignidade e qualidade de vida para os moradores.\n\nItaitinga é assim: uma cidade em expansão e transformação! 🤍\n\nSeguimos trabalhando e buscando melhorias para a nossa população.\n\n❤️ Se você gostou, curta, comente e compartilhe! Ajude a mostrar que o trabalho está chegando às comunidades e transformando vidas.\n\n#professoracláudia #itaitingaemmovimento #itaitinga #jabuti #itaitingace","images":["assets/noticia-rua.webp"],"featured":false},{"id":21,"date":"2026-10-21","title":"Homenagem à profissão docente","category":"Educação","status":"Homenagem a professores","url":"https://www.instagram.com/p/DewQWx_JO-D/","image":"assets/noticia-homenagem.webp","text":"🍎📚 Ser professor é muito mais do que ensinar. É transformar vidas, construir sonhos e preparar o futuro! ❤️\n\nComo professora e vereadora, tenho orgulho de fazer parte dessa profissão tão especial. Sei dos desafios, das lutas e, principalmente, do amor que cada educador dedica aos seus alunos.\n\nItaitinga está mudando e avançando na valorização dos nossos professores! Porque professor valorizado é professor ainda mais motivado e comprometido com o futuro da nossa cidade e das nossas crianças. 💙\n\n👏 Minha homenagem, meu respeito e minha gratidão a todos os professores que fazem a diferença todos os dias!🍎📚\n\n❤️ Curta, comente e compartilhe! Vamos espalhar essa homenagem e demonstrar nossa gratidão a quem dedica a vida à educação!\n\n#professoracláudia #itaitingaemmovimento #itaitinga #itaitingace #itaitingaceara","images":["assets/noticia-homenagem.webp"],"featured":false},{"id":22,"date":"2026-09-30","title":"Câmara aprova projeto sobre abono do FUNDEB","category":"Atuação","status":"Abono FUNDEB; projeto aprovado na Câmara segundo postagem","url":"https://www.instagram.com/p/Dd6qfj9J-Qt/","image":"assets/noticia-abono.webp","text":"📚 Compromisso e valorização com quem faz a nossa educação acontecer!\n\nQuero destacar a importância do projeto encaminhado pela gestão municipal e aprovado na Câmara de Vereadores por todos nós vereadores, que trata da utilização dos recursos do FUNDEB e da concessão de abono aos profissionais da educação. Uma iniciativa que representa compromisso com a educação, transparência na aplicação dos recursos públicos e cumprimento da legislação. \n\nParabenizo a gestão do prefeito @marquinhostavaresitaitinga e do vice @celsorodriguesitaitinga pela iniciativa e também todos os vereadores pela aprovação do projeto. Seguimos trabalhando para que nossos profissionais sejam reconhecidos e valorizados, porque cuidar de quem faz a educação é investir no futuro de Itaitinga. 💚📚\n\n👉 Se você gostou, curta, comente e compartilhe!","images":["assets/noticia-abono.webp"],"featured":false},{"id":23,"date":"2026-09-21","title":"Dia Nacional de Luta da Pessoa com Deficiência","category":"Inclusão","status":"Dia nacional de luta da pessoa com deficiência","url":"https://www.instagram.com/p/DdjNux8ltuG/","image":"assets/noticia-dia-deficiencia.webp","text":"A batalha das pessoas com deficiência é diária, mas o 21 de setembro é simbólico para a comunidade PCD. É o dia nacional de luta por direitos.\nA data tem duas facetas.\n\nOlhar pra trás e ver tudo que foi conquistado:\n🌻Educação inclusiva\n🌻Acesso ao trabalho\n🌻Mais direitos eleitorais\n🌻Acessibilidade no transporte\n\nOlhar adiante e saber que ainda há muita luta pela frente. Muitos deles já têm projetos em análise na Câmara Federal e em Itaitinga estou fazendo a minha parte. Arrasta pro lado pra checar!\nQue direitos você acha que são mais urgentes para aprovar?\n\n#itaitinga #itaitingace #itaitingaemmovimento #itaitingaceará #professoraclaudia","images":["assets/noticia-dia-deficiencia.webp"],"featured":false},{"id":24,"date":"2026-09-23","title":"Indicação propõe salas multissensoriais nas escolas","category":"Atuação","status":"Indicação 95/2026 aprovada; não equivale a lei/implantação","url":"https://www.instagram.com/p/DdobaVgpLV0/","image":"assets/noticia-salas.webp","text":"🤍💙 MAIS UM PASSO PELA INCLUSÃO EM ITAITINGA!\n\nFoi aprovado na Câmara Municipal o nosso Projeto de Indicação nº 95/2026, que propõe ao Poder Executivo a instituição do Programa Municipal de Salas Multissensoriais de Acolhimento e Regulação Sensorial nas unidades da Rede Pública Municipal de Ensino de Itaitinga.\n\nA proposta é destinada especialmente aos estudantes com Transtorno do Espectro Autista (TEA), sem excluir outros estudantes com deficiência ou necessidades sensoriais que também possam se beneficiar desses espaços.\n\nAs salas multissensoriais têm como objetivo proporcionar um ambiente adequado para acolhimento e regulação sensorial, contribuindo para o bem-estar do estudante e para sua permanência e participação no ambiente escolar. 🧩❤️\n\nCom a aprovação da nossa indicação, a matéria segue agora para o Poder Executivo Municipal, que poderá analisar a proposta e, entendendo pela sua viabilidade e conveniência, encaminhar à Câmara Municipal o respectivo Projeto de Lei para apreciação dos vereadores.\n\n🙏 Estamos na torcida para que essa proposta avance e possa se transformar em uma política pública para nossas crianças e estudantes!\n\nSeguimos trabalhando por uma educação cada vez mais inclusiva, acolhedora e preparada para respeitar as necessidades de cada aluno.\n\nGostou dessa iniciativa?\n❤️ Curta\n💬 Comente\n📲 Compartilhe\n\nVamos juntos fortalecer a inclusão em Itaitinga!\n\nProfessora Cláudia — a vereadora da inclusão. 💙\n\n#ProfessoraCláudia #VereadoraDaInclusão #Itaitinga #itaitingaemmovimento #itaitingace","images":["assets/noticia-salas.webp"],"featured":false},{"id":28,"date":"2026-10-07","title":"Homenagem no Dia do Prefeito","category":"Comunidade","status":"Dia do Prefeito","url":"https://www.instagram.com/p/DeLLA8Oljfh/","image":null,"text":"Hoje 6 de outubro é dia de homenagear quem carrega a responsabilidade de cuidar e trabalhar pelo desenvolvimento da nossa cidade, à frente do Executivo Municipal 🤍🤍\n\nParabéns ao nosso prefeito Marquinhos Tavares @marquinhostavaresitaitinga , pelo Dia do Prefeito! Que Deus continue lhe concedendo saúde, sabedoria, força e discernimento para seguir trabalhando por uma Itaitinga cada vez melhor para todos.\n\nMeu reconhecimento pelo compromisso, pela dedicação e pelo trabalho realizado em favor da nossa gente. Que Deus continue abençoando sua caminhada e sua missão! 🙏\n\nFeliz Dia do Prefeito, Marquinhos! 👏💙\n\nProfessora Cláudia\nVereadora da Inclusão e dos Projetos Sociais","images":[],"featured":false}],"mandate":[{"id":"braille","category":"ACESSIBILIDADE","title":"Sinalização visual, tátil e em Braille","description":"Projeto de lei nº 051/2026 apresentado, voltado à acessibilidade em escolas e órgãos públicos.","status":"PROPOSTA APRESENTADA","articleId":8},{"id":"salas","category":"EDUCAÇÃO INCLUSIVA","title":"Salas multissensoriais nas escolas","description":"Indicação nº 95/2026 aprovada na Câmara, encaminhada para análise do Executivo.","status":"INDICAÇÃO APROVADA","articleId":24},{"id":"maternidade","category":"DIREITOS","title":"Licença-maternidade para mães adotivas","description":"Proposta divulgada para garantir igualdade de condições às servidoras municipais.","status":"PROPOSTA DIVULGADA","articleId":10}],"about":{"headline":"Uma comunidade se fortalece quando caminha junto.","p1":"Este portal reúne notícias sobre iniciativas do Instituto Itaitinga em Movimento e publicações da atuação da vereadora Professora Cláudia Bezerra, sua madrinha.","p2":"Nosso compromisso aqui é organizar as informações de forma acessível, com projetos sociais separados das propostas parlamentares e links para os registros originais.","image":"assets/sobre-claudia.webp","caption":"Professora Cláudia Bezerra","subcaption":"Vereadora de Itaitinga e madrinha do Instituto","button":"Conhecer o perfil original","url":"https://www.instagram.com/professoraclaudiavereadora/"},"enrollment":{"headline":"Quando a oportunidade chegar, esteja preparado.","description":"Explore o fluxo previsto de pré-inscrição. A versão atual é uma demonstração: não coleta informações nem reserva vagas.","button":"Conhecer a pré-inscrição","warning":"Sem coleta de dados · Sem reserva de vagas","projects":[{"title":"Jiu-jitsu no Gereraú","status":"disponibilidade a confirmar"},{"title":"Balé infantil","status":"disponibilidade a confirmar"}]},"footer":{"heading":"Cláudia Bezerra","tagline":"ITAITINGA EM MOVIMENTO","description":"Informação, inclusão e iniciativas que aproximam as pessoas.","copyright":"© 2026 · Itaitinga em Movimento · Versão de apresentação.","notice":"Fotos originais do material fornecido · Inscrições ainda não habilitadas","menu1Title":"EXPLORE","menu2Title":"ACOMPANHE","links1":[{"title":"Projetos","url":"#projetos"},{"title":"Notícias","url":"#noticias"},{"title":"Atuação","url":"#atuacao"},{"title":"Quem somos","url":"#sobre"}],"links2":[{"title":"Instagram oficial ↗","url":"https://www.instagram.com/professoraclaudiavereadora/"},{"title":"Transparência","url":"#transparencia"},{"title":"Pré-inscrição demo","url":"#inscricoes"}],"address":"Itaitinga, Ceará","contact":""},"misc":{"verifyNote":"As atividades acima constam das publicações analisadas. Horários, idade mínima e vagas precisam de confirmação com os responsáveis.","trustTitle":"Transparência e responsabilidade","mandateHint":"Informações conforme publicações do perfil","aboutSectionLabel":"POR TRÁS DAS INICIATIVAS","newsSectionLabel":"INFORMAÇÃO PARA A COMUNIDADE","projectsSectionLabel":"PROJETOS E INICIATIVAS","archiveSectionLabel":"NA ÍNTEGRA","trustSectionLabel":"COMPROMISSO COM A INFORMAÇÃO","faqSectionLabel":"DÚVIDAS FREQUENTES","joinHint":"UM PRIMEIRO PASSO"},"trust":[{"title":"Origem identificada","description":"As notícias remetem às publicações originais. Datas e status são mantidos sem apresentar propostas como leis em vigor."},{"title":"Projetos separados do mandato","description":"O Instituto e a atuação parlamentar possuem papéis distintos, apresentados em áreas próprias."},{"title":"Proteção de dados","description":"O formulário é apenas demonstrativo. Qualquer cadastro real exigirá implantação segura e cuidados com dados de menores."}],"faq":[{"question":"Já posso garantir minha vaga pelo site?","answer":"Não. O formulário desta apresentação é demonstrativo e não recebe inscrições. A abertura oficial de vagas precisa ser confirmada."},{"question":"Todos os projetos são gratuitos?","answer":"O material recebido informa explicitamente gratuidade nas aulas de jiu-jitsu do Gereraú. As condições de outras atividades ainda dependem de confirmação."},{"question":"O portal pertence à Prefeitura de Itaitinga?","answer":"Não. Este é um projeto de portal comunitário independente, ainda em demonstração, sem vínculo institucional com a Prefeitura."},{"question":"Onde encontro a publicação original?","answer":"Abra uma notícia e escolha “Ver publicação original”. Você será direcionado ao Instagram correspondente."}]}
+{
+  "version": 1,
+  "identity": {
+    "name": "Cláudia Bezerra",
+    "tagline": "ITAITINGA EM MOVIMENTO",
+    "description": "Informação, inclusão e iniciativas que aproximam as pessoas.",
+    "instagram": "https://www.instagram.com/professoraclaudiavereadora/",
+    "ctaLabel": "Pré-inscrição"
+  },
+  "nav": [
+    {
+      "title": "Início",
+      "url": "#inicio"
+    },
+    {
+      "title": "Projetos",
+      "url": "#projetos"
+    },
+    {
+      "title": "Notícias",
+      "url": "#noticias"
+    },
+    {
+      "title": "Atuação",
+      "url": "#atuacao"
+    },
+    {
+      "title": "Quem somos",
+      "url": "#sobre"
+    },
+    {
+      "title": "Transparência",
+      "url": "#transparencia"
+    }
+  ],
+  "hero": {
+    "eyebrow": "COMUNIDADE · ESPORTE · CULTURA · INCLUSÃO",
+    "line1": "Mais oportunidades",
+    "line2": "para uma Itaitinga",
+    "line3": "que avança......",
+    "description": "Conectando a comunidade a iniciativas que transformam vidas pelo esporte, pela cultura, pela educação e pela inclusão.",
+    "image": "assets/hero-group.webp",
+    "photoCredit": "Foto real · Núcleo de jiu-jitsu no Gereraú, Itaitinga",
+    "handwriting": "Pessoas.\nProjetos.\nFuturos possíveis.",
+    "button1": "Conheça os projetos",
+    "button1Url": "#projetos",
+    "button2": "Acompanhar notícias",
+    "button2Url": "#noticias"
+  },
+  "focus": [
+    {
+      "title": "Comunidade",
+      "description": "gente que faz a diferença"
+    },
+    {
+      "title": "Projetos sociais",
+      "description": "esporte, cultura e inclusão"
+    },
+    {
+      "title": "Itaitinga, Ceará",
+      "description": "ações nos nossos bairros"
+    },
+    {
+      "title": "Mais oportunidades",
+      "description": "iniciativas para as famílias"
+    }
+  ],
+  "shortcuts": [
+    {
+      "title": "Projetos sociais",
+      "description": "Esporte, cultura e inclusão para a comunidade.",
+      "label": "Ver projetos",
+      "url": "#projetos"
+    },
+    {
+      "title": "Pré-inscrições",
+      "description": "Conheça como será o cadastro nos projetos.",
+      "label": "Saiba como participar",
+      "url": "#inscricoes"
+    },
+    {
+      "title": "Últimas notícias",
+      "description": "Publicações e ações divulgadas em Itaitinga.",
+      "label": "Ver notícias",
+      "url": "#noticias"
+    },
+    {
+      "title": "Atuação pública",
+      "description": "Propostas, indicações e assuntos de interesse local.",
+      "label": "Conhecer propostas",
+      "url": "#atuacao"
+    }
+  ],
+  "projects": [
+    {
+      "id": "jitsu",
+      "category": "ESPORTE",
+      "title": "Jiu-jitsu no Gereraú",
+      "description": "Um núcleo gratuito anunciado para a comunidade do Mutirão, promovendo disciplina e convivência.",
+      "image": "assets/projeto-jiujitsu.webp",
+      "articleId": 7,
+      "button": "Conheça a iniciativa"
+    },
+    {
+      "id": "bale",
+      "category": "CULTURA",
+      "title": "Balé que inspira",
+      "description": "Criatividade, movimento e momentos especiais em uma atividade infantil divulgada pelo Instituto.",
+      "image": "assets/projeto-bale.webp",
+      "articleId": 2,
+      "button": "Conheça a iniciativa"
+    },
+    {
+      "id": "inclusao",
+      "category": "INCLUSÃO",
+      "title": "Conexões que incluem",
+      "description": "Parceria divulgada com o CuidarTEA, aproximando tecnologia e cuidado às famílias atípicas.",
+      "image": "assets/projeto-inclusao.webp",
+      "articleId": 13,
+      "button": "Saiba mais"
+    }
+  ],
+  "headlines": {
+    "projects": "Projetos em destaque",
+    "news": "Últimas notícias",
+    "archive": "Explore as publicações",
+    "archiveDesc": "Notícias com link para a publicação original do perfil. Conteúdos pessoais e eleitorais não entram nas inscrições sociais.",
+    "mandate": "Atuação parlamentar",
+    "faq": "Antes de participar"
+  },
+  "featuredNewsIds": [
+    7,
+    2,
+    24,
+    8
+  ],
+  "articles": [
+    {
+      "id": 2,
+      "date": "2026-10-21",
+      "title": "Atividade de balé reúne crianças em momento de criatividade",
+      "category": "Projetos",
+      "status": "Atividade de balé; gratuito e vagas não confirmados",
+      "url": "https://www.instagram.com/p/Dew8W2okTYr/",
+      "image": "assets/projeto-bale.webp",
+      "text": "🎀UM DIA DE MUITA ALEGRIA E DIVERSÃO! 💖🩰\n\nOntem, o Instituto Itaitinga em Movimento @itaitingaemmovimento promoveu a primeira aula de Cabelo Maluco no Balé, e foi um momento especial, cheio de alegria, criatividade, brincadeiras e muitos sorrisos! 🌈🥰\n\nFoi lindo ver nossas bailarinas se divertindo, soltando a imaginação e compartilhando momentos tão especiais. Mais do que uma aula, vivemos um dia de união, carinho e muita felicidade! 💕\n\nNosso objetivo é proporcionar experiências que vão além da dança, criando memórias felizes e fortalecendo os laços entre nossas crianças. 🩰❤️\n\nAgradecemos a todos que fazem parte desse projeto e em especial nossa madrinha @professoraclaudiavereadora e todos aqueles que contribuem para que momentos como esse aconteçam!\n\nInstituto Itaitinga em Movimento — transformando vidas através do esporte, da cultura e do amor! 💗\n\n#itaitingaemmovimento #Balé #CabeloMaluco #InfânciaFeliz #itaitinga",
+      "images": [
+        "assets/projeto-bale.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 3,
+      "date": "2026-10-08",
+      "title": "Rua H, no Parque Dom Pedro, recebe pavimentação",
+      "category": "Comunidade",
+      "status": "Notícia: obra municipal, atribuição compartilhada",
+      "url": "https://www.instagram.com/p/DePe_SxpfjL/",
+      "image": "assets/noticia-rua-h.webp",
+      "text": "🚧🏗️ É TANTA OBRA ACONTECENDO EM ITAITINGA QUE SÓ AGORA CONSEGUIMOS GRAVAR ESSE ANTES E DEPOIS! 😍👏\n\n📍 Início da Rua H – Bairro Parque Dom Pedro\n\nOlha só essa transformação! 😍 Onde antes havia lama, buracos e dificuldades para os moradores, hoje temos uma rua asfaltada, trazendo mais mobilidade, segurança e qualidade de vida para nossa população! ❤️\n\nSão tantas obras acontecendo em nosso município que só agora tivemos a oportunidade de voltar aqui e mostrar como ficou essa transformação!\n\nQuero agradecer ao nosso prefeito @marquinhostavaresitaitinga , ao vice @celsorodriguesitaitinga e à Secretaria de Infraestrutura pelo compromisso com o desenvolvimento da nossa cidade. 👏\n\n💚 Itaitinga não para! É trabalho, progresso e transformação chegando aos nossos bairros!\n\nSeguimos acompanhando, ouvindo a população e trabalhando por uma Itaitinga cada vez melhor!\n\n❤️ Gostou dessa transformação? Curta, comente e compartilhe! Vamos mostrar o quanto nossa cidade está avançando!\n\n#professoracláudia #itaitinga #parquedompedro #itaitingace #itaitingaemmovimento",
+      "images": [
+        "assets/noticia-rua-h.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 4,
+      "date": "2026-10-15",
+      "title": "Homenagem pelo Dia dos Professores",
+      "category": "Comunidade",
+      "status": "Homenagem a professores",
+      "url": "https://www.instagram.com/p/DehWtfsJSqv/",
+      "image": null,
+      "text": "📚❤️🤍Feliz Dia dos Professores!  Hoje é dia de homenagear cada professor, cada educador e todas as pessoas que carregam no coração o verdadeiro espírito de educar, ensinar, acolher e transformar vidas.\n\nSer educador vai muito além de transmitir conhecimentos. É acreditar no potencial de cada pessoa, despertar sonhos, abrir caminhos e plantar sementes que darão frutos por toda a vida.\n\nMinha admiração e gratidão a todos que fazem da educação uma missão de amor, dedicação e compromisso com o próximo.\n\nQue Deus abençoe cada professor e cada pessoa que, de alguma forma, contribui para construir um mundo melhor por meio da educação.\n\n👏📚 Feliz Dia dos Professores! Educar é um ato de amor que transforma gerações!\n\nProfessora Cláudia 🤍",
+      "images": [],
+      "featured": false
+    },
+    {
+      "id": 5,
+      "date": "2026-10-09",
+      "title": "Pavimentação da Rua Turmalina chega ao Ancuri",
+      "category": "Comunidade",
+      "status": "Pedido nº 251/2025; 2 mídias não salvas",
+      "url": "https://www.instagram.com/p/DeRjpI-pH7_/",
+      "image": null,
+      "text": "🚧🚜 O ASFALTO COMEÇOU A CHEGAR NO ANCURi! 🤍🤍👏\n\nMuitas pessoas estavam me perguntando: “Professora Cláudia, quando o asfalto vai chegar ao Ancuri ?”\n\nE agora temos uma ótima notícia! 🙌 Os trabalhos de limpeza e preparação já começaram, dando início à pavimentação asfáltica e dando continuidade à pavimentação da Rua Turmalina por completo, agora do lado do Ancuri! Os serviços seguirão para as outras ruas do bairro.\n\nEssa conquista também faz parte do nosso Requerimento nº 251/2025, aprovado na Câmara Municipal de Itaitinga, que solicita melhorias para a Rua Turmalina, incluindo futuramente a construção de uma passagem molhada, possibilitando a ligação entre os bairros Ancuri e Barrocão, criando uma importante via alternativa para a população.\n\n👏 Agradeço ao prefeito @marquinhostavaresitaitinga , ao vice-prefeito @celsorodriguesitaitinga e ao secretário de Infraestrutura @ffabiano_s pela atenção às solicitações do nosso mandato!\n\n💚 Seguimos trabalhando, cobrando e acompanhando cada etapa para que mais melhorias cheguem à nossa população!\n\n📢 O trabalho continua, e o Ancuri segue avançando!\n\n❤️ Curta, comente e compartilhe!\n\n#ProfessoraCláudia #Itaitinga #Ancuri #RuaTurmalina #Asfalto Infraestrutura",
+      "images": [],
+      "featured": false
+    },
+    {
+      "id": 7,
+      "date": "2026-10-15",
+      "title": "Núcleo gratuito de jiu-jitsu no Gereraú",
+      "category": "Projetos",
+      "status": "Núcleo gratuito de jiu-jitsu; vagas não confirmadas",
+      "url": "https://www.instagram.com/p/DegtpsBloMo/",
+      "image": "assets/noticia-jiujitsu.webp",
+      "text": "🥋💙🤍 MAIS UM NÚCLEO, MAIS VIDAS TRANSFORMADAS! 🚀👏\n\nÉ com muita alegria que anunciamos mais uma conquista! O Instituto Itaitinga em Movimento @itaitingaemmovimento continua ampliando seus projetos sociais e agora chega ao bairro Gereraú, na comunidade do Mutirão, com mais um núcleo de JIU-JITSU! 🥋👏\n\nCom o apoio da nossa madrinha, vereadora Professora Cláudia @professoraclaudiavereadora , e do nosso presidente de honra, professor Régis @professorregisitaitinga , seguimos levando esporte, inclusão e oportunidades para cada vez mais famílias de Itaitinga!\n\n🥋 O JIU-JITSU TRANSFORMA VIDAS!\n\nMuito além do esporte, ele ensina disciplina, respeito, autoconfiança, controle emocional e valores que nossos alunos levarão para toda a vida.\n\n💙 E O MELHOR: AS AULAS SÃO TOTALMENTE GRATUITAS!\n\n📍 Novo núcleo: Comunidade do Mutirão – Bairro Gereraú.\n\n🤝 UM CONVITE ESPECIAL AOS EMPRESÁRIOS!\n\nVocê que é pequeno, médio ou grande empresário e deseja fazer a diferença na vida de crianças, adolescentes e famílias, venha ser nosso parceiro!\n\nEstamos sempre de portas abertas para receber qualquer tipo de ajuda, seja com materiais, equipamentos, serviços, apoio financeiro ou outras contribuições.\n\n❤️ Não importa o tamanho da sua contribuição, mas a transformação que podemos realizar juntos!\n\nCada novo núcleo representa mais oportunidades, mais sonhos e mais vidas transformadas. Agradecemos aos professores, voluntários, parceiros e famílias que acreditam nessa missão!\n\n🚀 E NÃO VAMOS PARAR POR AQUI! VEM MUITO MAIS POR AÍ!\n\n📍 Conheça nossa sede: Rua José Barros de Alencar, nº 245 – Barrocão, Itaitinga/CE.\n\n❤️ Curta | 💬 Comente | 📲 Compartilhe\n🤝 Marque um empresário que pode fazer parte dessa corrente do bem!\n\nJUNTOS SOMOS MAIS FORTES! JUNTOS TRANSFORMAMOS VIDAS! 💙💛\n\n#itaitingaemmovimento #professoracláudia #itaitingace #itaitinga #itaitingaceará",
+      "images": [
+        "assets/noticia-jiujitsu.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 8,
+      "date": "2026-10-19",
+      "title": "Projeto propõe sinalização visual, tátil e em Braille",
+      "category": "Atuação",
+      "status": "PL 051/2026; proposta apresentada, não lei vigente",
+      "url": "https://www.instagram.com/p/Dersx39JSbW/",
+      "image": "assets/noticia-braille.webp",
+      "text": "Mais inclusão e acessibilidade para Itaitinga! 💙\n\nApresentamos o Projeto de Lei nº 051/2026, que torna obrigatória a sinalização visual, tátil e em Braille nas unidades escolares e nos órgãos públicos municipais.\n\nNas escolas, essa iniciativa garante mais autonomia, segurança e pertencimento aos estudantes com deficiência visual. Nos órgãos municipais, facilita o acesso aos serviços públicos, permitindo que cada cidadão identifique os ambientes e se locomova com mais independência.\n\nAs placas existentes serão substituídas gradativamente, conforme a necessidade de reposição, e as novas já deverão seguir os padrões de acessibilidade.\n\nIncluir é garantir que todos possam acessar os mesmos espaços com dignidade e autonomia!\n\nCurta, comente e compartilhe. 💙\n\n#ProfessoraCláudia #VereadoraDaInclusão #Itaitinga #Acessibilidade #Braille Inclusão",
+      "images": [
+        "assets/noticia-braille.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 10,
+      "date": "2026-10-13",
+      "title": "Proposta busca igualdade de licença-maternidade para mães adotivas",
+      "category": "Atuação",
+      "status": "Projeto sobre licença-maternidade de mães adotivas; não aprovado no material",
+      "url": "https://www.instagram.com/p/DebhS7dJC4h/",
+      "image": "assets/noticia-maternidade.webp",
+      "text": "💜 MÃE É MÃE, SEJA BIOLÓGICA OU ADOTIVA! 👩‍👧‍👦❤️\n\nO Supremo Tribunal Federal (STF) reafirmou um direito fundamental: mães adotivas devem ter os mesmos direitos das mães biológicas à licença-maternidade!\n\n📢 E aqui em Itaitinga, estamos trabalhando para garantir que esse direito também esteja assegurado na nossa legislação municipal!\n\nComo vereadora, estou apresentando um Projeto de Lei que altera a Lei Municipal nº 386/2010, corrigindo uma desigualdade que ainda existe no Estatuto dos Servidores Públicos do nosso município.\n\n✅ Licença-maternidade de 120 dias, com possibilidade de prorrogação por mais 60 dias, nas mesmas condições das mães biológicas.\n\n✅ Igualdade de direitos, independentemente da idade da criança adotada.\n\n❤️ Porque o amor de mãe não nasce apenas do ventre, mas também do coração!\n\nSeguimos trabalhando por uma Itaitinga mais justa, humana e inclusiva!\n\nProfessora Cláudia 💜\nA vereadora da inclusão e dos projetos sociais!\n\n📲 Gostou dessa iniciativa? Curta, comente e compartilhe! Sua participação fortalece nossa luta por mai direitos e igualdade!\n\n#itaitinga #itaitingaemmovimento #itaitingace #professoraclaudia #itaitingaceará",
+      "images": [
+        "assets/noticia-maternidade.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 12,
+      "date": "2026-10-16",
+      "title": "Sessão solene homenageia educadores",
+      "category": "Educação",
+      "status": "Sessão solene de homenagem a professores",
+      "url": "https://www.instagram.com/p/DeiS0zKuAYV/",
+      "image": "assets/noticia-educadores.webp",
+      "text": "📚❤️ Mais um pouquinho do que foi a nossa Sessão Solene em homenagem aos professores, um momento especial de emoção, reconhecimento e gratidão a cada educador que dedica sua vida à missão de ensinar e transformar vidas.\n\nComo professora e vereadora, foi uma alegria participar dessa homenagem e celebrar aqueles que fazem a diferença na educação do nosso município.\n\n❤️ Parabéns a todos os professores! Vocês são essenciais na construção de um futuro melhor!",
+      "images": [
+        "assets/noticia-educadores.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 13,
+      "date": "2026-10-07",
+      "title": "Parceria com CuidarTEA aborda inclusão e tecnologia",
+      "category": "Projetos",
+      "status": "Parceria CuidarTEA e instituto; sem inscrição comprovada",
+      "url": "https://www.instagram.com/p/DeNVN0Tpt6R/",
+      "image": "assets/projeto-inclusao.webp",
+      "text": "💙 INCLUSÃO, TECNOLOGIA E PARCERIA! 🚀\nFico muito feliz em ver o CuidarTEA @cuidartea.oficial desenvolvendo projetos que unem tecnologia, inovação e cuidado com as famílias atípicas. Como mãe atípica e defensora da inclusão, foi justamente esse olhar para o futuro que mais me chamou a atenção.\n\nTambém me alegra saber que pude contribuir para aproximar e fortalecer essa parceria entre o CuidarTEA @cuidartea.oficial e o Instituto Itaitinga em Movimento @itaitingaemmovimento , instituição da qual tenho a honra de ser madrinha. 🤝🤍 Ver essa parceria crescendo e dando frutos mostra a importância de conectarmos boas ideias com quem deseja transformar vidas.\n\nDesejo que o CuidarTEA avance cada vez mais, alcance seus objetivos e continue desenvolvendo soluções que contribuam para o presente e, principalmente, para o futuro das famílias atípicas de Itaitinga e de todo o Ceará. 🧩🚀\n\nSeguimos construindo pontes entre inclusão, tecnologia e oportunidades. Porque quando boas parcerias se encontram, quem ganha é a nossa gente! 💙\n\nProfessora Cláudia — a vereadora da inclusão.",
+      "images": [
+        "assets/projeto-inclusao.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 14,
+      "date": "2026-10-08",
+      "title": "Dia do Nordestino e educação",
+      "category": "Educação",
+      "status": "Dia do Nordestino e estatísticas mencionadas; checar antes de publicar",
+      "url": "https://www.instagram.com/p/DePBcVpJ5GG/",
+      "image": null,
+      "text": "🌵☀️ 8 DE OUTUBRO | DIA DO NORDESTINO! 🤍🤍\n\nSer nordestino é carregar no coração uma história de força, coragem, fé e superação! É ter orgulho das nossas raízes, da nossa cultura e de um povo que nunca desiste de lutar por dias melhores. ❤️\n\nE hoje quero destacar uma conquista que enche nosso coração de orgulho: o Ceará é referência nacional em educação pública! 📚👏\n\n📊 Os números comprovam esse destaque! Em 2024, o Ceará alcançou 85% das crianças alfabetizadas até o final do 2º ano do ensino fundamental, enquanto a média brasileira foi de 59,2%.\n\nNo IDEB, nosso estado também avançou, alcançando 6,8 nos anos iniciais e 5,6 nos anos finais do ensino fundamental da rede pública, em 2025.\n\nComo professora, acredito que a educação é um dos caminhos mais poderosos para transformar vidas, romper desigualdades e construir um futuro melhor para nossas crianças. 💚\n\nNeste Dia do Nordestino, minha homenagem a todos os nordestinos e nordestinas, especialmente ao nosso povo cearense e de nossa Itaitinga , que demonstra diariamente sua força, seu talento e sua capacidade de transformar realidades!\n\n🌵 Tenho orgulho de ser nordestina, tenho orgulho de ser cearense e tenho orgulho de ser professora! ❤️\n\n💬 E você, também tem orgulho das suas raízes nordestinas?\n\n❤️ Curta, comente e compartilhe!\n\n#DiaDoNordestino #OrgulhoNordestino #OrgulhoCearense #Ceará #itaitinga",
+      "images": [],
+      "featured": false
+    },
+    {
+      "id": 15,
+      "date": "2026-10-01",
+      "title": "Homenagem pelo Dia do Vereador",
+      "category": "Comunidade",
+      "status": "Dia do Vereador",
+      "url": "https://www.instagram.com/p/Dd9PsXMJRdn/",
+      "image": null,
+      "text": "Hoje, 1º de outubro, celebramos o Dia do Vereador! 💙\n\nQuero parabenizar todos os meus colegas vereadores que, junto comigo, vêm trabalhando e contribuindo para a transformação de Itaitinga.\n\nCada debate, cada projeto, cada requerimento e cada decisão tomada nesta Casa Legislativa carregam a responsabilidade de representar a nossa população e buscar melhorias para o nosso município.\n\nQue possamos continuar fortalecendo o Poder Legislativo, com diálogo, respeito, compromisso e, acima de tudo, muito trabalho por nossa gente.\n\nParabéns a todos os vereadores de Itaitinga! 👏\n\nSeguimos juntos, trabalhando por uma Itaitinga cada vez melhor! 💙\n@demetriussaoficial, @nenbessa, @leandro_do_popia_, @mauroguimares, @vereadoradoquinha, @fabioladoacilon, @lucia_queirozserpa, @diassisdobarrocao, @edisionovaisitaitinga, @profedinaldo_, @clenildovereador, @vereadordanieltopiqueiro @professoraclaudiavereadora @auriceliocavalcante_vereador @nilson_itaitinga",
+      "images": [],
+      "featured": false
+    },
+    {
+      "id": 16,
+      "date": "2026-10-16",
+      "title": "Visita à Creche Gervásio no Ancuri",
+      "category": "Educação",
+      "status": "Visita à Creche Gervásio",
+      "url": "https://www.instagram.com/p/DejkpA_pV4E/",
+      "image": "assets/noticia-creche.webp",
+      "text": "🏫❤️🤍 Dia de visitar a Creche Gervásio, no Ancuri! Um lugar que faz parte da minha história e pelo qual tenho um carinho muito especial! ❤️\n\nComo professora e ex-diretora desta instituição, é sempre uma alegria retornar, reencontrar pessoas queridas e acompanhar de perto esse espaço tão importante para a educação das nossas crianças.\n\nHoje, como vereadora, sigo com o mesmo compromisso de sempre: defender uma educação pública de qualidade, inclusiva e acolhedora para todas as nossas crianças. 📚💙\n@marquinhostavaresitaitinga @celsorodriguesitaitinga \n\nPorque quem ama a educação nunca deixa de cuidar dela! ❤️\n\n#ProfessoraCláudia #Educação #CrecheGervásio #Ancuri #Itaitinga VereadoraDaInclusão",
+      "images": [
+        "assets/noticia-creche.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 17,
+      "date": "2026-10-01",
+      "title": "Pedido de melhorias na Rua Turmalina",
+      "category": "Comunidade",
+      "status": "Pavimentação Rua Turmalina; requerimento 251/2025",
+      "url": "https://www.instagram.com/p/Dd9lDanp1K0/",
+      "image": null,
+      "text": "🏗️ MAIS UM PEDIDO NOSSO SENDO ATENDIDO!\n\nNosso Requerimento nº 251/2025, aprovado no plenário da Câmara Municipal, solicitou melhorias importantes para a Rua Turmalina no bairro Barrocão. E agora já podemos acompanhar a realização do serviço de pavimentação asfáltica, trazendo melhores condições de tráfego e mobilidade para a população.\n\nO requerimento também prevê, futuramente, a construção de uma passagem molhada na Rua Turmalina, possibilitando a ligação entre os bairros Ancuri e Barrocão e criando uma importante via alternativa para quem precisa se deslocar pela região.\n\nAgradeço ao prefeito @marquinhostavaresitaitinga , ao vice @celsorodriguesitaitinga e ao secretário de Infraestrutura @ffabiano_s pela atenção e por atenderem mais um pedido do nosso mandato.\n\nSeguimos acompanhando e trabalhando para que cada etapa desse requerimento se torne realidade! 💚\n\n👉 Curta, comente e compartilhe!",
+      "images": [],
+      "featured": false
+    },
+    {
+      "id": 20,
+      "date": "2026-09-24",
+      "title": "Rua Dona Esmeralda recebe pavimentação",
+      "category": "Comunidade",
+      "status": "Rua Dona Esmeralda; indicação 156/2026",
+      "url": "https://www.instagram.com/p/DdrZIV1lu-P/",
+      "image": "assets/noticia-rua.webp",
+      "text": "Nosso trabalho é ouvir a população, apresentar as demandas e acompanhar para que elas se tornem realidade! Uma demanda que chegou até o @itaitingaemmovimento onde sou madrinha 🙏❤️\n\nHoje quero agradecer ao Executivo Municipal, na pessoa do prefeito @marquinhostavaresitaitinga , do vice @celsorodriguesitaitinga e do secretário de Infraestrutura @ffabiano_s , pelo atendimento ao nosso Requerimento de Indicação nº 156/2026, no qual solicitamos a pavimentação em intertravado para a Rua Dona Esmeralda, no bairro Jabuti.\n\nUma rua que por muitos anos enfrentou lama e dificuldades agora vive uma nova realidade. Onde antes havia transtorno, hoje temos mais mobilidade, dignidade e qualidade de vida para os moradores.\n\nItaitinga é assim: uma cidade em expansão e transformação! 🤍\n\nSeguimos trabalhando e buscando melhorias para a nossa população.\n\n❤️ Se você gostou, curta, comente e compartilhe! Ajude a mostrar que o trabalho está chegando às comunidades e transformando vidas.\n\n#professoracláudia #itaitingaemmovimento #itaitinga #jabuti #itaitingace",
+      "images": [
+        "assets/noticia-rua.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 21,
+      "date": "2026-10-21",
+      "title": "Homenagem à profissão docente",
+      "category": "Educação",
+      "status": "Homenagem a professores",
+      "url": "https://www.instagram.com/p/DewQWx_JO-D/",
+      "image": "assets/noticia-homenagem.webp",
+      "text": "🍎📚 Ser professor é muito mais do que ensinar. É transformar vidas, construir sonhos e preparar o futuro! ❤️\n\nComo professora e vereadora, tenho orgulho de fazer parte dessa profissão tão especial. Sei dos desafios, das lutas e, principalmente, do amor que cada educador dedica aos seus alunos.\n\nItaitinga está mudando e avançando na valorização dos nossos professores! Porque professor valorizado é professor ainda mais motivado e comprometido com o futuro da nossa cidade e das nossas crianças. 💙\n\n👏 Minha homenagem, meu respeito e minha gratidão a todos os professores que fazem a diferença todos os dias!🍎📚\n\n❤️ Curta, comente e compartilhe! Vamos espalhar essa homenagem e demonstrar nossa gratidão a quem dedica a vida à educação!\n\n#professoracláudia #itaitingaemmovimento #itaitinga #itaitingace #itaitingaceara",
+      "images": [
+        "assets/noticia-homenagem.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 22,
+      "date": "2026-09-30",
+      "title": "Câmara aprova projeto sobre abono do FUNDEB",
+      "category": "Atuação",
+      "status": "Abono FUNDEB; projeto aprovado na Câmara segundo postagem",
+      "url": "https://www.instagram.com/p/Dd6qfj9J-Qt/",
+      "image": "assets/noticia-abono.webp",
+      "text": "📚 Compromisso e valorização com quem faz a nossa educação acontecer!\n\nQuero destacar a importância do projeto encaminhado pela gestão municipal e aprovado na Câmara de Vereadores por todos nós vereadores, que trata da utilização dos recursos do FUNDEB e da concessão de abono aos profissionais da educação. Uma iniciativa que representa compromisso com a educação, transparência na aplicação dos recursos públicos e cumprimento da legislação. \n\nParabenizo a gestão do prefeito @marquinhostavaresitaitinga e do vice @celsorodriguesitaitinga pela iniciativa e também todos os vereadores pela aprovação do projeto. Seguimos trabalhando para que nossos profissionais sejam reconhecidos e valorizados, porque cuidar de quem faz a educação é investir no futuro de Itaitinga. 💚📚\n\n👉 Se você gostou, curta, comente e compartilhe!",
+      "images": [
+        "assets/noticia-abono.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 23,
+      "date": "2026-09-21",
+      "title": "Dia Nacional de Luta da Pessoa com Deficiência",
+      "category": "Inclusão",
+      "status": "Dia nacional de luta da pessoa com deficiência",
+      "url": "https://www.instagram.com/p/DdjNux8ltuG/",
+      "image": "assets/noticia-dia-deficiencia.webp",
+      "text": "A batalha das pessoas com deficiência é diária, mas o 21 de setembro é simbólico para a comunidade PCD. É o dia nacional de luta por direitos.\nA data tem duas facetas.\n\nOlhar pra trás e ver tudo que foi conquistado:\n🌻Educação inclusiva\n🌻Acesso ao trabalho\n🌻Mais direitos eleitorais\n🌻Acessibilidade no transporte\n\nOlhar adiante e saber que ainda há muita luta pela frente. Muitos deles já têm projetos em análise na Câmara Federal e em Itaitinga estou fazendo a minha parte. Arrasta pro lado pra checar!\nQue direitos você acha que são mais urgentes para aprovar?\n\n#itaitinga #itaitingace #itaitingaemmovimento #itaitingaceará #professoraclaudia",
+      "images": [
+        "assets/noticia-dia-deficiencia.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 24,
+      "date": "2026-09-23",
+      "title": "Indicação propõe salas multissensoriais nas escolas",
+      "category": "Atuação",
+      "status": "Indicação 95/2026 aprovada; não equivale a lei/implantação",
+      "url": "https://www.instagram.com/p/DdobaVgpLV0/",
+      "image": "assets/noticia-salas.webp",
+      "text": "🤍💙 MAIS UM PASSO PELA INCLUSÃO EM ITAITINGA!\n\nFoi aprovado na Câmara Municipal o nosso Projeto de Indicação nº 95/2026, que propõe ao Poder Executivo a instituição do Programa Municipal de Salas Multissensoriais de Acolhimento e Regulação Sensorial nas unidades da Rede Pública Municipal de Ensino de Itaitinga.\n\nA proposta é destinada especialmente aos estudantes com Transtorno do Espectro Autista (TEA), sem excluir outros estudantes com deficiência ou necessidades sensoriais que também possam se beneficiar desses espaços.\n\nAs salas multissensoriais têm como objetivo proporcionar um ambiente adequado para acolhimento e regulação sensorial, contribuindo para o bem-estar do estudante e para sua permanência e participação no ambiente escolar. 🧩❤️\n\nCom a aprovação da nossa indicação, a matéria segue agora para o Poder Executivo Municipal, que poderá analisar a proposta e, entendendo pela sua viabilidade e conveniência, encaminhar à Câmara Municipal o respectivo Projeto de Lei para apreciação dos vereadores.\n\n🙏 Estamos na torcida para que essa proposta avance e possa se transformar em uma política pública para nossas crianças e estudantes!\n\nSeguimos trabalhando por uma educação cada vez mais inclusiva, acolhedora e preparada para respeitar as necessidades de cada aluno.\n\nGostou dessa iniciativa?\n❤️ Curta\n💬 Comente\n📲 Compartilhe\n\nVamos juntos fortalecer a inclusão em Itaitinga!\n\nProfessora Cláudia — a vereadora da inclusão. 💙\n\n#ProfessoraCláudia #VereadoraDaInclusão #Itaitinga #itaitingaemmovimento #itaitingace",
+      "images": [
+        "assets/noticia-salas.webp"
+      ],
+      "featured": false
+    },
+    {
+      "id": 28,
+      "date": "2026-10-07",
+      "title": "Homenagem no Dia do Prefeito",
+      "category": "Comunidade",
+      "status": "Dia do Prefeito",
+      "url": "https://www.instagram.com/p/DeLLA8Oljfh/",
+      "image": null,
+      "text": "Hoje 6 de outubro é dia de homenagear quem carrega a responsabilidade de cuidar e trabalhar pelo desenvolvimento da nossa cidade, à frente do Executivo Municipal 🤍🤍\n\nParabéns ao nosso prefeito Marquinhos Tavares @marquinhostavaresitaitinga , pelo Dia do Prefeito! Que Deus continue lhe concedendo saúde, sabedoria, força e discernimento para seguir trabalhando por uma Itaitinga cada vez melhor para todos.\n\nMeu reconhecimento pelo compromisso, pela dedicação e pelo trabalho realizado em favor da nossa gente. Que Deus continue abençoando sua caminhada e sua missão! 🙏\n\nFeliz Dia do Prefeito, Marquinhos! 👏💙\n\nProfessora Cláudia\nVereadora da Inclusão e dos Projetos Sociais",
+      "images": [],
+      "featured": false
+    }
+  ],
+  "mandate": [
+    {
+      "id": "braille",
+      "category": "ACESSIBILIDADE",
+      "title": "Sinalização visual, tátil e em Braille",
+      "description": "Projeto de lei nº 051/2026 apresentado, voltado à acessibilidade em escolas e órgãos públicos.",
+      "status": "PROPOSTA APRESENTADA",
+      "articleId": 8
+    },
+    {
+      "id": "salas",
+      "category": "EDUCAÇÃO INCLUSIVA",
+      "title": "Salas multissensoriais nas escolas",
+      "description": "Indicação nº 95/2026 aprovada na Câmara, encaminhada para análise do Executivo.",
+      "status": "INDICAÇÃO APROVADA",
+      "articleId": 24
+    },
+    {
+      "id": "maternidade",
+      "category": "DIREITOS",
+      "title": "Licença-maternidade para mães adotivas",
+      "description": "Proposta divulgada para garantir igualdade de condições às servidoras municipais.",
+      "status": "PROPOSTA DIVULGADA",
+      "articleId": 10
+    }
+  ],
+  "about": {
+    "headline": "Uma comunidade se fortalece quando caminha junto.",
+    "p1": "Este portal reúne notícias sobre iniciativas do Instituto Itaitinga em Movimento e publicações da atuação da vereadora Professora Cláudia Bezerra, sua madrinha.",
+    "p2": "Nosso compromisso aqui é organizar as informações de forma acessível, com projetos sociais separados das propostas parlamentares e links para os registros originais.",
+    "image": "assets/sobre-claudia.webp",
+    "caption": "Professora Cláudia Bezerra",
+    "subcaption": "Vereadora de Itaitinga e madrinha do Instituto",
+    "button": "Conhecer o perfil original",
+    "url": "https://www.instagram.com/professoraclaudiavereadora/"
+  },
+  "enrollment": {
+    "headline": "Quando a oportunidade chegar, esteja preparado.",
+    "description": "Explore o fluxo previsto de pré-inscrição. A versão atual é uma demonstração: não coleta informações nem reserva vagas.",
+    "button": "Conhecer a pré-inscrição",
+    "warning": "Sem coleta de dados · Sem reserva de vagas",
+    "projects": [
+      {
+        "title": "Jiu-jitsu no Gereraú",
+        "status": "disponibilidade a confirmar"
+      },
+      {
+        "title": "Balé infantil",
+        "status": "disponibilidade a confirmar"
+      }
+    ],
+    "layout": "normal",
+    "sectionPosition": "after-mandate",
+    "offsetX": 0,
+    "offsetY": 0,
+    "titleSize": 44,
+    "textSize": 15,
+    "buttonSize": 14,
+    "fontFamily": "default",
+    "titleFont": "default",
+    "backgroundColor": "#144b39",
+    "titleColor": "#ffffff",
+    "textColor": "#cfe2d7",
+    "accentColor": "#d1de98",
+    "buttonColor": "#d2e58b",
+    "buttonTextColor": "#103a2b",
+    "paddingY": 45
+  },
+  "footer": {
+    "heading": "Cláudia Bezerra",
+    "tagline": "ITAITINGA EM MOVIMENTO",
+    "description": "Informação, inclusão e iniciativas que aproximam as pessoas.",
+    "copyright": "© 2026 · Itaitinga em Movimento · Versão de apresentação.",
+    "notice": "Fotos originais do material fornecido · Inscrições ainda não habilitadas",
+    "menu1Title": "EXPLORE",
+    "menu2Title": "ACOMPANHE",
+    "links1": [
+      {
+        "title": "Projetos",
+        "url": "#projetos"
+      },
+      {
+        "title": "Notícias",
+        "url": "#noticias"
+      },
+      {
+        "title": "Atuação",
+        "url": "#atuacao"
+      },
+      {
+        "title": "Quem somos",
+        "url": "#sobre"
+      }
+    ],
+    "links2": [
+      {
+        "title": "Instagram oficial ↗",
+        "url": "https://www.instagram.com/professoraclaudiavereadora/"
+      },
+      {
+        "title": "Transparência",
+        "url": "#transparencia"
+      },
+      {
+        "title": "Pré-inscrição demo",
+        "url": "#inscricoes"
+      }
+    ],
+    "address": "Itaitinga, Ceará",
+    "contact": ""
+  },
+  "misc": {
+    "verifyNote": "As atividades acima constam das publicações analisadas. Horários, idade mínima e vagas precisam de confirmação com os responsáveis.",
+    "trustTitle": "Transparência e responsabilidade",
+    "mandateHint": "Informações conforme publicações do perfil",
+    "aboutSectionLabel": "POR TRÁS DAS INICIATIVAS",
+    "newsSectionLabel": "INFORMAÇÃO PARA A COMUNIDADE",
+    "projectsSectionLabel": "PROJETOS E INICIATIVAS",
+    "archiveSectionLabel": "NA ÍNTEGRA",
+    "trustSectionLabel": "COMPROMISSO COM A INFORMAÇÃO",
+    "faqSectionLabel": "DÚVIDAS FREQUENTES",
+    "joinHint": "UM PRIMEIRO PASSO"
+  },
+  "trust": [
+    {
+      "title": "Origem identificada",
+      "description": "As notícias remetem às publicações originais. Datas e status são mantidos sem apresentar propostas como leis em vigor."
+    },
+    {
+      "title": "Projetos separados do mandato",
+      "description": "O Instituto e a atuação parlamentar possuem papéis distintos, apresentados em áreas próprias."
+    },
+    {
+      "title": "Proteção de dados",
+      "description": "O formulário é apenas demonstrativo. Qualquer cadastro real exigirá implantação segura e cuidados com dados de menores."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Já posso garantir minha vaga pelo site?",
+      "answer": "Não. O formulário desta apresentação é demonstrativo e não recebe inscrições. A abertura oficial de vagas precisa ser confirmada."
+    },
+    {
+      "question": "Todos os projetos são gratuitos?",
+      "answer": "O material recebido informa explicitamente gratuidade nas aulas de jiu-jitsu do Gereraú. As condições de outras atividades ainda dependem de confirmação."
+    },
+    {
+      "question": "O portal pertence à Prefeitura de Itaitinga?",
+      "answer": "Não. Este é um projeto de portal comunitário independente, ainda em demonstração, sem vínculo institucional com a Prefeitura."
+    },
+    {
+      "question": "Onde encontro a publicação original?",
+      "answer": "Abra uma notícia e escolha “Ver publicação original”. Você será direcionado ao Instagram correspondente."
+    }
+  ]
+}
