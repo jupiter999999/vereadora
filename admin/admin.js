@@ -71,7 +71,7 @@ function asset(row,obj,k,mode,onApplied){
  input.type='file';input.accept='image/png,image/jpeg,image/webp';upload.append(input);actions.append(upload);
  const adjust=H('button','asset-adjust','✥ Ajustar foto atual');adjust.type='button';
  adjust.disabled=!obj[k];
- actions.append(adjust);info.append(actions);
+ if(typeof onApplied!=='function')actions.append(adjust);info.append(actions);
  const error=H('small','asset-error');info.append(error);zone.append(info);row.append(zone);
  function apply(uri){obj[k]=uri;image.src=uri;image.style.opacity='1';adjust.disabled=false;markDirty();if(typeof onApplied==='function')onApplied(uri);msg('Foto enquadrada para '+dim.w+' × '+dim.h+' px. Revise o resultado e salve seu rascunho.');}
  input.addEventListener('change',async()=>{
