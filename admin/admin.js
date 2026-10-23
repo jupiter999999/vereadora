@@ -28,15 +28,23 @@ function markDirty(){dirty=true;$('#dirtyChip').textContent='Alterações não s
 function markSaved(text){dirty=false;$('#dirtyChip').textContent='Rascunho salvo';$('#dirtyChip').className='hint-chip';$('#saveState').textContent=text||'Rascunho armazenado no GitHub. Ainda não publicado.';updateActions();document.dispatchEvent(new CustomEvent('portal:admin-change'));}
 function updateActions(){const canWrite=authenticated&&configured&&canPublish&&!busy;$('#saveButton').disabled=!canWrite||!dirty;$('#publishButton').disabled=!canWrite||dirty;$('#discardButton').disabled=busy||!content;$('#logoutButton').hidden=!authenticated;}
 function useTab(id){
- if(id!=='visual'&&!sections[id])return;
+ const special=['visual','dashboard','help','media'];
+ if(!special.includes(id)&&!sections[id])return;
  current=id;
  document.querySelectorAll('.side-link').forEach(e=>e.classList.toggle('active',e.dataset.tab===id));
- const visual=id==='visual', v=$('#visualWorkspace'), advanced=$('#advancedEditorLayout');
- if(v)v.hidden=!visual;if(advanced)advanced.hidden=visual;
- const title=visual?'Editor visual':sections[id].title;
+ const names={dashboard:'Visão geral',visual:'Editar site visualmente',help:'Central de ajuda',media:'Biblioteca de fotos'};
+ const title=names[id]||sections[id].title;
+ const dashboard=$('#studioDashboard'),help=$('#studioHelp'),visual=$('#visualWorkspace'),advanced=$('#advancedEditorLayout');
+ if(dashboard)dashboard.hidden=id!=='dashboard';
+ if(help)help.hidden=id!=='help';
+ if(visual)visual.hidden=id!=='visual';
+ if(advanced)advanced.hidden=special.includes(id);
  $('#crumbCurrent').textContent=title;
- if(visual){document.dispatchEvent(new CustomEvent('portal:visual-open'));return;}
- $('#panelTitle').textContent=sections[id].title;$('#panelHint').textContent=sections[id].hint;draw();
+ const heading=$('.topbar h1');
+ if(heading)heading.textContent=id==='dashboard'?'Studio de Conteúdo':title;
+ if(!special.includes(id)){$('#panelTitle').textContent=title;$('#panelHint').textContent=sections[id].hint;draw();}
+ if(id==='visual')document.dispatchEvent(new CustomEvent('portal:visual-open'));
+ document.dispatchEvent(new CustomEvent('portal:studio-route',{detail:{id}}));
 }
 function note(s){const e=H('p','section-note',s);return e;}
 function field(host,obj,k,label,type='text',mode=''){const row=H('div','field');const cap=H('label','field-label',label);row.append(cap);
@@ -53,9 +61,20 @@ function field(host,obj,k,label,type='text',mode=''){const row=H('div','field');
  host.append(row);
 }
 function asset(row,obj,k,mode){const dim=sizes[mode]||sizes.project;const zone=H('div','asset-field');const image=H('img','asset-preview');image.alt='Prévia da imagem atual';image.src=assetSrc(obj[k])||'/assets/hero-group.webp';image.onerror=()=>{image.style.opacity=.15};zone.append(image);
- const info=H('div','asset-info');info.append(H('strong','',dim.label),H('p','','Formatos aceitos: JPG, PNG ou WebP. Envie EXATAMENTE '+dim.w+' × '+dim.h+' pixels. O editor converte em WebP (máx. 1 MB).'));
+ const info=H('div','asset-info');info.append(H('strong','',dim.label),H('p','','JPG, PNG ou WebP. Recorte e ajuste no editor até ficar na proporção correta. Saída: '+dim.w+' × '+dim.h+' px em WebP (máx. 1 MB).'));
  const upload=H('label','asset-upload','↑ Trocar fotografia');const inp=H('input');inp.type='file';inp.accept='image/png,image/jpeg,image/webp';upload.append(inp);info.append(upload);const err=H('small','asset-error');info.append(err);zone.append(info);row.append(zone);
- inp.addEventListener('change',async()=>{const file=inp.files?.[0];if(!file)return;err.textContent='';try{if(file.size>10000000)throw Error('Arquivo original acima de 10 MB.');const bitmap=await createImageBitmap(file);if(bitmap.width!==dim.w||bitmap.height!==dim.h){const w=bitmap.width,h=bitmap.height;bitmap.close();throw Error('Dimensão recebida: '+w+' × '+h+' px. Este espaço aceita apenas '+dim.w+' × '+dim.h+' px.');}const canvas=document.createElement('canvas');canvas.width=dim.w;canvas.height=dim.h;canvas.getContext('2d').drawImage(bitmap,0,0);bitmap.close();let uri=canvas.toDataURL('image/webp',.85);if(uri.length>1350000)uri=canvas.toDataURL('image/webp',.65);if(uri.length>1350000)throw Error('A imagem excede 1 MB mesmo após a compressão.');obj[k]=uri;image.src=uri;markDirty();msg('Imagem aceita: '+dim.label+'. Ficará online somente após publicar.');}catch(e){err.textContent=e.message;inp.value='';}});
+ inp.addEventListener('change',async()=>{
+  const file=inp.files?.[0];if(!file)return;
+  err.textContent='';
+  try{
+   if(file.size>12000000)throw Error('A imagem original ultrapassa 12 MB.');
+   if(!/^image\/(png|jpeg|webp)$/.test(file.type))throw Error('Envie JPG, PNG ou WebP.');
+   const uri=await window.PortalImageCrop.open(file,dim);
+   if(!uri)return;
+   obj[k]=uri;image.src=uri;image.style.opacity='1';markDirty();
+   msg('Foto ajustada para '+dim.label+'. Confira a prévia e salve quando estiver satisfeito.');
+  }catch(e){err.textContent=e.message||'Não foi possível processar a imagem.';}finally{inp.value='';}
+ });
 }
 function gallery(row,obj,k,mode){if(!Array.isArray(obj[k]))obj[k]=obj.image?[obj.image]:[];const grid=H('div','gallery-grid');const repaint=()=>{grid.replaceChildren();obj[k].forEach((src,i)=>{const tile=H('div','gallery-piece');const img=H('img');img.src=assetSrc(src);img.alt='Foto '+(i+1);const del=H('button','small-btn danger','Remover foto '+(i+1));del.type='button';del.addEventListener('click',()=>{obj[k].splice(i,1);obj.image=obj[k][0]||'';markDirty();repaint()});tile.append(img,del);grid.append(tile);});};repaint();row.append(grid);
  const control={image:''};const uploadArea=H('div');asset(uploadArea,control,'image',mode);const fileInput=uploadArea.querySelector('input[type=file]');const observer=new MutationObserver(()=>{if(control.image&&!obj[k].includes(control.image)){if(obj[k].length>=8){msg('No máximo 8 fotos por notícia.',true);control.image='';return;}obj[k].push(control.image);obj.image=obj[k][0];control.image='';markDirty();repaint();}});observer.observe(uploadArea,{attributes:true,subtree:true,attributeFilter:['src']}); // event custom after acceptance below
@@ -111,7 +130,7 @@ async function boot(){
    content=await response.json();
    $('#saveState').textContent='Prévia habilitada. Salvamento aguarda permissão de escrita do GitHub.';
   }
-  useTab('visual');updateActions();document.dispatchEvent(new CustomEvent('portal:admin-ready'));
+  useTab('dashboard');updateActions();document.dispatchEvent(new CustomEvent('portal:admin-ready'));
  }catch(e){setStatus('Não foi possível carregar','error');msg('Erro ao abrir editor: '+e.message,true);}
 }
 $('#authForm').addEventListener('submit',async event=>{
@@ -163,7 +182,10 @@ window.PortalAdmin={
  save:()=>$('#saveButton').click(),
  publish:()=>$('#publishButton').click(),
  isDirty:()=>dirty,
- getCurrent:()=>current
+ getCurrent:()=>current,
+ getSaveState:()=>({dirty,canPublish,authenticated}),
+ replaceContent:data=>{content=structuredClone(data);markDirty();draw();document.dispatchEvent(new CustomEvent('portal:studio-replaced'));},
+ refresh:()=>{draw();pushPreview();}
 };
 
 boot();
