@@ -11,7 +11,30 @@ const sections={
  articles:{title:'Notícias e publicações',hint:'Cadastre novas notícias, galerias com várias fotos e escolha as notícias que aparecem na capa.',collection:true,spec:[['title','Título da notícia'],['category','Assunto / categoria'],['date','Data da publicação','date'],['status','Situação ou contexto'],['text','Texto completo da notícia','textarea'],['url','Link da publicação original','url'],['images','Galeria de fotos','gallery','news']],filter:true},
  mandate:{title:'Atuação pública',hint:'Destaques sobre propostas e indicações. Diferencie sempre proposta de lei aprovada.',collection:true,spec:[['title','Título'],['category','Área temática'],['description','Descrição','textarea'],['status','Situação atual'],['articleId','Notícia relacionada','article']]},
  about:{title:'Quem somos',hint:'Foto institucional, apresentação e link oficial.',fields:[['headline','Título da seção'],['p1','Primeiro parágrafo','textarea'],['p2','Segundo parágrafo','textarea'],['image','Fotografia institucional','image','portrait'],['caption','Legenda da foto'],['subcaption','Subtítulo da legenda'],['button','Texto do botão'],['url','Destino do botão','url']]},
- enrollment:{title:'Área de pré-inscrição',hint:'Edite os textos e os projetos disponíveis na demonstração. O cadastro real permanece desativado.',fields:[['headline','Título da inscrição'],['description','Descrição da inscrição','textarea'],['button','Botão de chamada'],['warning','Aviso de segurança']],nested:['projects',[['title','Projeto'],['status','Condição / disponibilidade']]]},
+ enrollment:{
+  title:'Pré-inscrição · Design e posição',
+  hint:'Clique no bloco no editor visual e personalize posição, cores, fonte e tamanho. Todas as alterações aparecem na prévia.',
+  fields:[['headline','Título do bloco'],['description','Texto de apresentação','textarea'],['button','Texto do botão'],['warning','Aviso abaixo do botão']],
+  appearanceFields:[
+   ['layout','Organização dos elementos','select',[['normal','Texto à esquerda / botão à direita'],['reverse','Botão à esquerda / texto à direita'],['center','Tudo centralizado']]],
+   ['sectionPosition','Posição desta seção na página','select',[['after-mandate','Depois da atuação pública (atual)'],['before-mandate','Antes da atuação pública'],['after-news','Depois das notícias'],['before-news','Antes das notícias'],['before-projects','Antes dos projetos sociais'],['after-transparency','Depois da transparência']]],
+   ['offsetX','Mover bloco para os lados','range',{min:-100,max:100,step:1,unit:' px',default:0}],
+   ['offsetY','Mover bloco para cima / baixo','range',{min:-100,max:100,step:1,unit:' px',default:0}],
+   ['paddingY','Altura / espaçamento da faixa','range',{min:20,max:110,step:1,unit:' px',default:45}],
+   ['backgroundColor','Cor do fundo','color','#144b39'],
+   ['titleColor','Cor do título','color','#ffffff'],
+   ['accentColor','Cor da palavra em destaque','color','#d1de98'],
+   ['textColor','Cor da descrição e aviso','color','#cfe2d7'],
+   ['buttonColor','Cor de fundo do botão','color','#d2e58b'],
+   ['buttonTextColor','Cor do texto do botão','color','#103a2b'],
+   ['titleFont','Fonte do título','select',[['default','Original (editorial)'],['georgia','Georgia · elegante'],['serif','Clássica (serif)'],['modern','Moderna (Segoe UI)'],['arial','Arial'],['trebuchet','Trebuchet']]],
+   ['fontFamily','Fonte da descrição e botão','select',[['default','Original do site'],['modern','Moderna (Segoe UI)'],['arial','Arial'],['georgia','Georgia'],['trebuchet','Trebuchet']]],
+   ['titleSize','Tamanho do título','range',{min:26,max:70,step:1,unit:' px',default:44}],
+   ['textSize','Tamanho da descrição','range',{min:12,max:23,step:1,unit:' px',default:15}],
+   ['buttonSize','Tamanho do botão','range',{min:11,max:22,step:1,unit:' px',default:14}]
+  ],
+  nested:['projects',[['title','Projeto'],['status','Condição / disponibilidade']]]
+ },
  footer:{title:'Rodapé e contato',hint:'Altere nomes, créditos, endereço, contato e os links do rodapé.',fields:[['heading','Nome no rodapé'],['tagline','Subtítulo'],['description','Mensagem institucional','textarea'],['copyright','Texto de direitos autorais'],['notice','Nota pública'],['address','Endereço / município'],['contact','Contato / telefone / e-mail'],['menu1Title','Título da coluna 1'],['menu2Title','Título da coluna 2']],nestedMany:[['links1','Links da coluna 1'],['links2','Links da coluna 2']]},
  headlines:{title:'Títulos das seções',hint:'Personalize os títulos grandes usados no portal.',fields:[['projects','Título de projetos'],['news','Título de notícias'],['archive','Título do arquivo'],['archiveDesc','Descrição acima do arquivo','textarea'],['mandate','Título da atuação pública'],['faq','Título das dúvidas frequentes']]},
  trust:{title:'Transparência',hint:'Atualize os cartões de transparência e proteção de dados.',collection:true,spec:[['title','Título'],['description','Descrição','textarea']]},
@@ -47,17 +70,38 @@ function useTab(id){
  document.dispatchEvent(new CustomEvent('portal:studio-route',{detail:{id}}));
 }
 function note(s){const e=H('p','section-note',s);return e;}
-function field(host,obj,k,label,type='text',mode=''){const row=H('div','field');const cap=H('label','field-label',label);row.append(cap);
+function field(host,obj,k,label,type='text',mode=''){
+ const row=H('div','field');const cap=H('label','field-label',label);row.append(cap);
  if(type==='image'){asset(row,obj,k,mode);host.append(row);return;}
  if(type==='gallery'){gallery(row,obj,k,mode);host.append(row);return;}
  let inp;
  if(type==='textarea'){inp=H('textarea');inp.rows=String(k)==='text'?11:4;inp.maxLength=30000;inp.value=obj[k]??'';}
  else if(type==='article'){inp=H('select');inp.append(new Option('Nenhuma notícia associada','0'));for(const p of content.articles||[])inp.append(new Option((p.title||'Sem título').slice(0,80),String(p.id)));inp.value=String(obj[k]??0);}
- else {inp=H('input');inp.type=type==='url'?'text':type==='date'?'date':'text';inp.maxLength=2000;inp.value=obj[k]??'';}
+ else if(type==='select'){inp=H('select');for(const [value,title] of (Array.isArray(mode)?mode:[]))inp.append(new Option(title,value));inp.value=String(obj[k]??(Array.isArray(mode)&&mode.length?mode[0][0]:''));}
+ else if(type==='color'){
+  const value=/^#[0-9a-fA-F]{6}$/.test(String(obj[k]||''))?obj[k]:(/^#[0-9a-fA-F]{6}$/.test(String(mode))?mode:'#ffffff');
+  inp=H('input');inp.type='color';inp.value=value;row.classList.add('cms-color-row');
+  const sample=H('span','cms-color-code',value.toUpperCase());
+  inp.addEventListener('input',()=>{sample.textContent=inp.value.toUpperCase();});
+  row.append(sample);
+ }else if(type==='range'){
+  const conf=typeof mode==='object'&&mode?mode:{min:0,max:100,step:1,unit:'',default:0};
+  inp=H('input');inp.type='range';inp.min=String(conf.min);inp.max=String(conf.max);inp.step=String(conf.step||1);
+  const value=Number(obj[k]);inp.value=String(Number.isFinite(value)?Math.max(conf.min,Math.min(conf.max,value)):conf.default);
+  row.classList.add('cms-range-row');
+  const display=H('output','cms-range-value',inp.value+(conf.unit||''));
+  inp.addEventListener('input',()=>{display.textContent=inp.value+(conf.unit||'');});
+  const reset=H('button','small-btn','↺');reset.type='button';reset.title='Restaurar posição ou tamanho padrão';
+  reset.addEventListener('click',()=>{inp.value=String(conf.default);inp.dispatchEvent(new Event('input',{bubbles:true}));});
+  row.append(display,reset);
+ }else{
+  inp=H('input');inp.type=type==='url'?'text':type==='date'?'date':'text';inp.maxLength=2000;inp.value=obj[k]??'';
+ }
  inp.id='fld-'+k+'-'+Math.random().toString(36).slice(2,8);cap.htmlFor=inp.id;
- const onChange=()=>{obj[k]=type==='article'?Number(inp.value):inp.value;markDirty();};
- inp.addEventListener('input',onChange);inp.addEventListener('change',onChange);row.append(inp);
- if(type==='url')row.append(H('small','', 'Use links https://, #nome-da-seção, mailto: ou tel:.'));
+ const onChange=()=>{obj[k]=type==='article'||type==='range'?Number(inp.value):inp.value;markDirty();};
+ inp.addEventListener('input',onChange);inp.addEventListener('change',onChange);
+ row.insertBefore(inp,row.querySelector('.cms-color-code,.cms-range-value')||null);
+ if(type==='url')row.append(H('small','','Use links https://, #nome-da-seção, mailto: ou tel:.'));
  host.append(row);
 }
 function asset(row,obj,k,mode,onApplied){
@@ -144,6 +188,7 @@ async function draw(){if(!content||current==='visual'||!sections[current])return
  if(def.collection){if(current==='articles')featured(root);repeated(root,current,def.spec,{filter:def.filter});return;}
  const o=content[current]||{};content[current]=o;
  simpleFields(root,o,def.fields||[]);
+ if(def.appearanceFields){root.append(H('h3','group-heading','APARÊNCIA, FONTES E POSIÇÃO'));root.append(note('Arraste o bloco na edição visual ou ajuste X/Y abaixo. A escala permanece no tamanho original até você alterar.'));simpleFields(root,o,def.appearanceFields);}
  if(def.nested){nestedCollection(root,o,def.nested[0],'Atividades de exemplo',def.nested[1]);}
  if(def.nestedMany){for(const [key,title] of def.nestedMany)nestedCollection(root,o,key,title,[['title','Nome do link'],['url','Endereço','url']]);}
 }
