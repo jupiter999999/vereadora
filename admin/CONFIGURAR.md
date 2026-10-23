@@ -61,3 +61,9 @@ As variáveis seguras são `CMS_ADMIN_USER`, `CMS_ADMIN_PASSWORD_HASH` e `CMS_SE
 - O painel não grava inscrições reais de alunos. Isso exige outro banco e medidas de privacidade/LGPD.
 
 **Atenção:** a biblioteca de fotos é editorial; não faça upload de documentos ou dados pessoais por este editor.
+
+## Personalização visual da pré-inscrição
+
+Na página `/adm`, entre em **Editar site visualmente**, passe o mouse sobre a faixa verde de pré-inscrição e clique em **✎ Editar este bloco**. Ajuste as cores de fundo, título, destaque, descrição e botão; selecione uma fonte e use os controles de tamanho. Para mudar a posição, arraste a alça **✥ Mover bloco** na prévia ou ajuste os campos de posição horizontal e vertical. Também é possível inverter as colunas, centralizar e escolher em qual ponto da página a seção aparece. No celular, o deslocamento é limitado para evitar que o texto saia da tela.
+
+O tamanho padrão é preservado até você alterar. Antes de publicar, confira a prévia e utilize **Salvar rascunho** e **Publicar no site**.
