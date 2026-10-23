@@ -119,7 +119,7 @@ async function boot(){
    return;
   }
   setStatus(canPublish?'Administrador conectado':'Acesso liberado — edição em preparação',canPublish?'':'warn');
-  $('#setupPanel').hidden=true;
+  // A faixa antiga foi removida do HTML; nenhuma referência é necessária.
   let data;
   if(canPublish){
    data=await request('draft');savedSha=data.sha;content=data.content;
