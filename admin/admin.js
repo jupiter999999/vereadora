@@ -14,7 +14,7 @@ const sections={
  enrollment:{
   title:'Pré-inscrição · Design e posição',
   hint:'Clique no bloco no editor visual e personalize posição, cores, fonte e tamanho. Todas as alterações aparecem na prévia.',
-  fields:[['headline','Título do bloco'],['description','Texto de apresentação','textarea'],['button','Texto do botão'],['warning','Aviso abaixo do botão']],
+  fields:[['headline','Título do bloco'],['highlight','Palavras com cor de destaque'],['description','Texto de apresentação','textarea'],['button','Texto do botão'],['warning','Aviso abaixo do botão']],
   appearanceFields:[
    ['layout','Organização dos elementos','select',[['normal','Texto à esquerda / botão à direita'],['reverse','Botão à esquerda / texto à direita'],['center','Tudo centralizado']]],
    ['sectionPosition','Posição desta seção na página','select',[['after-mandate','Depois da atuação pública (atual)'],['before-mandate','Antes da atuação pública'],['after-news','Depois das notícias'],['before-news','Antes das notícias'],['before-projects','Antes dos projetos sociais'],['after-transparency','Depois da transparência']]],
