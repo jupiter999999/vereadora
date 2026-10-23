@@ -32,7 +32,8 @@
   <aside class="sidebar" aria-label="Navegação do editor">
     <a class="sidebar-brand" href="/" target="_blank" rel="noopener noreferrer"><span class="brand-mark">✳</span><span><strong>Cláudia Bezerra</strong><small>CENTRAL DE CONTEÚDO</small></span></a>
     <div class="side-caption">ADMINISTRAÇÃO</div>
-    <button class="side-link active" type="button" data-tab="identity"><span>◈</span> Identidade do site</button>
+    <button class="side-link active" type="button" data-tab="visual"><span>✎</span> Editar site visualmente</button>
+    <button class="side-link" type="button" data-tab="identity"><span>◈</span> Identidade do site</button>
     <button class="side-link" type="button" data-tab="hero"><span>✦</span> Capa e fundo</button>
     <button class="side-link" type="button" data-tab="nav"><span>☷</span> Cabeçalho e menu</button>
     <button class="side-link" type="button" data-tab="focus"><span>◉</span> Destaques rápidos</button>
@@ -57,7 +58,27 @@
     </header>
     <div class="app-message" id="message" role="status" aria-live="polite"></div>
     <div class="help-panel" id="setupPanel" hidden><strong>Ativação da área administrativa</strong><p>O acesso ao painel está protegido. Para salvar edições diretamente no GitHub e publicar na Vercel, falta configurar a permissão de gravação exclusiva do repositório. As alterações podem ser visualizadas antes de configurar essa opção.</p><a target="_blank" rel="noopener noreferrer" href="/admin/CONFIGURAR.md">Como habilitar publicação ↗</a></div>
-    <div class="editor-layout">
+
+    <section id="visualWorkspace" class="visual-workspace" hidden aria-label="Editor visual do site">
+      <div class="visual-toolbar">
+        <div class="visual-toolbar-copy"><strong><span class="visual-live-dot"></span> Edição visual</strong><span>Clique em qualquer área com lápis para modificar. Só aparece no site após publicar.</span></div>
+        <div class="visual-toolbar-actions"><div class="visual-device-toggle" aria-label="Tamanho da visualização"><button id="visualDesktop" class="active" type="button">▣ Computador</button><button id="visualMobile" type="button">▯ Celular</button></div><button id="visualRefresh" type="button" class="btn secondary">↻ Atualizar prévia</button></div>
+      </div>
+      <div class="visual-layout" id="visualLayout">
+        <div class="visual-canvas">
+          <div class="visual-frame-wrap" id="visualFrameWrap"><iframe id="visualFrame" src="/?preview=1&amp;visual=1" title="Site editável com ferramentas de edição" loading="eager"></iframe></div>
+          <div class="visual-hint">✎ Passe o mouse ou toque em um bloco do site e clique em <strong>Editar</strong>. Navegação real fica desativada nesta prévia.</div>
+        </div>
+        <aside class="visual-inspector" id="visualInspector" aria-labelledby="visualInspectorTitle">
+          <div class="visual-inspector-top"><span class="kicker">PROPRIEDADES DO BLOCO</span><h2 id="visualInspectorTitle">Selecione uma área do site</h2><p id="visualInspectorHint">Clique em um lápis sobre a página para abrir os campos correspondentes.</p></div>
+          <div class="visual-inspector-body" id="visualInspectorBody">
+            <div class="visual-empty"><span>✎</span><strong>Editar ficou muito mais fácil.</strong><p>Clique em um título, foto, card, notícia ou no rodapé da página. Os campos aparecerão aqui e a mudança será mostrada na hora.</p></div>
+          </div>
+          <div class="visual-inspector-bottom"><button id="visualAdvanced" type="button" class="btn secondary">✎ Abrir edição completa da seção</button></div>
+        </aside>
+      </div>
+    </section>
+    <div class="editor-layout" id="advancedEditorLayout">
       <div class="editor-surface">
         <div class="panel-head"><div><span class="kicker">CONTEÚDO EDITÁVEL</span><h2 id="panelTitle">Identidade do site</h2><p id="panelHint">Atualize os textos e imagens. Use a prévia antes de publicar.</p></div><span class="hint-chip" id="dirtyChip">Sem mudanças</span></div>
         <div class="panel-body" id="editorForm"></div>
@@ -84,5 +105,6 @@
   <div class="preview-canvas"><iframe id="previewFrame" src="/?preview=1" title="Prévia interativa do portal" loading="lazy"></iframe></div>
 </div>
 <script src="/admin/admin.js"></script>
+<script src="/admin/visual.js"></script>
 </body>
 </html>
