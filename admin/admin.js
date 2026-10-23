@@ -73,7 +73,7 @@ function asset(row,obj,k,mode,onApplied){
  adjust.disabled=!obj[k];
  if(typeof onApplied!=='function')actions.append(adjust);info.append(actions);
  const error=H('small','asset-error');info.append(error);zone.append(info);row.append(zone);
- function apply(uri){obj[k]=uri;image.src=uri;image.style.opacity='1';adjust.disabled=false;markDirty();if(typeof onApplied==='function')onApplied(uri);msg('Foto enquadrada para '+dim.w+' × '+dim.h+' px. Revise o resultado e salve seu rascunho.');}
+ function apply(uri){obj[k]=uri;image.src=uri;image.style.opacity='1';adjust.disabled=false;if(typeof onApplied==='function'&&onApplied(uri)===false){obj[k]='';adjust.disabled=true;return;}markDirty();msg('Foto enquadrada para '+dim.w+' × '+dim.h+' px. Revise o resultado e salve seu rascunho.');}
  input.addEventListener('change',async()=>{
   const file=input.files?.[0];if(!file)return;
   error.textContent='';
@@ -118,7 +118,7 @@ function gallery(row,obj,k,mode){
  draw();row.append(grid);
  const addArea=H('div'),newImage={image:''};
  asset(addArea,newImage,'image',mode,(uri)=>{
-  if(obj[k].length>=8){msg('Limite de 8 fotos por notícia. Exclua uma antes de adicionar outra.',true);return;}
+  if(obj[k].length>=8){msg('Limite de 8 fotos por notícia. Exclua uma antes de adicionar outra.',true);return false;}
   obj[k].push(uri);obj.image=obj[k][0]||'';newImage.image='';draw();
  });
  row.append(addArea);
