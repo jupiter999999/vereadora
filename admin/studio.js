@@ -240,4 +240,6 @@ document.addEventListener('portal:admin-ready',initialize);
 document.addEventListener('portal:studio-route',e=>{setSections(e.detail.id)});
 document.addEventListener('portal:admin-change',()=>{changeCaptured();if(api.getCurrent()==='dashboard')fillDashboard();});
 document.addEventListener('portal:studio-replaced',()=>{if(api.getCurrent()==='dashboard')fillDashboard();});
+// Se a resposta do login chegar antes deste arquivo carregar, sincroniza o Studio também.
+if(api.isAuthenticated()&&api.getContent())initialize();
 })();
